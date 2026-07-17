@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elif Parıldar — Mobile Growth & Storefront Science</title>
-  <meta name="description" content="Psychology × Mobile Growth. Specializing in storefront optimization, A/B testing, and behavioral dynamics." />
+  <title>Elif Parıldar — Consumer Behavior & Mobile Growth</title>
+  <meta name="description" content="Psychology × Mobile Growth. Specializing in choice architecture, storefront optimization, and data analytics." />
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans for premium feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #030712;
-      --panel: rgba(255, 255, 255, 0.02);
-      --panel-hover: rgba(255, 255, 255, 0.05);
+      --bg: #0b0f19;
+      --panel: rgba(255, 255, 255, 0.03);
+      --panel-hover: rgba(255, 255, 255, 0.06);
       --text-primary: #f9fafb;
       --text-secondary: #9ca3af;
-      --border: rgba(255, 255, 255, 0.07);
-      --border-hover: rgba(139, 92, 246, 0.3);
-      --accent: #8b5cf6; /* HubX Purple */
-      --accent-glow: rgba(139, 92, 246, 0.15);
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(139, 92, 246, 0.4);
+      --accent: #8b5cf6; /* HubX Royal Purple */
+      --accent-glow: rgba(139, 92, 246, 0.12);
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-title: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,42 +35,47 @@
       letter-spacing: -0.01em;
       overflow-x: hidden;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Ambient Decorative Glows */
+    /* HubX Style Ambient Ambient Glows */
     .glow {
       position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      filter: blur(100px);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      filter: blur(120px);
       z-index: -1;
       pointer-events: none;
     }
-    .glow-top { top: -10%; left: 15%; }
-    .glow-mid { top: 50%; right: -10%; }
+    .glow-top { top: -200px; left: 50%; transform: translateX(-50%); }
+    .glow-mid { top: 40%; left: 50%; transform: translateX(-50%); }
 
     header {
+      width: 100%;
+      max-width: 1100px;
       padding: 32px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
     }
     .logo {
+      font-family: var(--font-title);
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       letter-spacing: -0.03em;
     }
     .logo span {
       background: linear-gradient(135deg, #a78bfa, #3b82f6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-left: 4px;
     }
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
     }
     .nav-links a {
       color: var(--text-secondary);
@@ -75,15 +87,22 @@
     .nav-links a:hover { color: var(--text-primary); }
 
     main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 24px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 60px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* Hero Section */
+    /* Hero Section - Perfectly Centered */
     .hero {
-      max-width: 850px;
-      margin-bottom: 100px;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .tagline {
       display: inline-block;
@@ -99,30 +118,32 @@
       border: 1px solid rgba(139, 92, 246, 0.15);
     }
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.1;
+      font-family: var(--font-title);
+      font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.15;
       letter-spacing: -0.04em;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     h1 span {
-      background: linear-gradient(to right, #ffffff 40%, #a78bfa);
+      background: linear-gradient(to right, #ffffff 30%, #a78bfa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
       color: var(--text-secondary);
-      line-height: 1.5;
+      max-width: 680px;
       margin-bottom: 40px;
     }
     .cta-group {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .btn {
-      padding: 14px 32px;
+      padding: 14px 28px;
       border-radius: 99px;
       font-weight: 600;
       font-size: 0.9rem;
@@ -136,11 +157,11 @@
     }
     .btn-primary {
       background: #ffffff;
-      color: #030712;
+      color: #0b0f19;
     }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
     }
     .btn-secondary {
       background: var(--panel);
@@ -153,39 +174,44 @@
       transform: translateY(-2px);
     }
 
-    /* Section Headers */
+    /* Sections Shared Styles */
+    section {
+      width: 100%;
+      margin-bottom: 100px;
+    }
     .section-header {
+      text-align: center;
       margin-bottom: 48px;
     }
     .section-title {
+      font-family: var(--font-title);
       font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.03em;
+      margin-bottom: 8px;
     }
     .section-subtitle {
       color: var(--text-secondary);
       font-size: 1rem;
-      margin-top: 6px;
     }
 
-    /* Robust Grid System (Resolves the squeeze layout bug) */
+    /* Fixed Grid - Centered & Dynamic */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
-      margin-bottom: 80px;
+      width: 100%;
     }
     
     .card {
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 36px;
+      padding: 32px;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
       cursor: pointer;
       position: relative;
     }
@@ -193,31 +219,29 @@
       border-color: var(--border-hover);
       background: var(--panel-hover);
       transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
-    
     .card-meta {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--accent);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .card-title {
-      font-size: 1.6rem;
-      font-weight: 800;
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      color: var(--text-primary);
+      margin-bottom: 12px;
     }
     .card-body {
       color: var(--text-secondary);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
       margin-bottom: 24px;
     }
 
-    /* Skill & Technical Tags */
     .tag-container {
       display: flex;
       flex-wrap: wrap;
@@ -225,21 +249,21 @@
       margin-top: auto;
     }
     .tag {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      padding: 6px 14px;
+      padding: 4px 12px;
       border-radius: 99px;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.75rem;
+      font-weight: 500;
       color: var(--text-secondary);
     }
 
-    /* Detailed CV List (Academic & Certifications) */
+    /* Education & Certs Layout */
     .list-container {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-bottom: 80px;
+      width: 100%;
     }
     .list-item {
       background: var(--panel);
@@ -258,9 +282,9 @@
       background: var(--panel-hover);
     }
     .list-info h4 {
-      font-size: 1.2rem;
+      font-family: var(--font-title);
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--text-primary);
     }
     .list-info p {
       color: var(--text-secondary);
@@ -271,112 +295,115 @@
       background: rgba(139, 92, 246, 0.1);
       color: var(--accent);
       border: 1px solid rgba(139, 92, 246, 0.2);
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 99px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
     }
 
-    /* Contact Block (Footer CTA) */
+    /* Toolkit Visual Grid */
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    .tool-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .tool-box span {
+      font-family: var(--font-title);
+      display: block;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .tool-box p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Contact Block */
     .contact-section {
       text-align: center;
-      padding: 80px 32px;
-      background: radial-gradient(circle at 50% 50%, var(--accent-glow), transparent 60%);
+      padding: 60px 32px;
+      background: radial-gradient(circle at 50% 50%, var(--accent-glow), transparent 70%);
       border-radius: 32px;
       border: 1px solid var(--border);
-      margin-top: 80px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .contact-section h2 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      font-family: var(--font-title);
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
     .contact-section p {
       color: var(--text-secondary);
-      margin-bottom: 32px;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 1.05rem;
+      margin-bottom: 28px;
+      max-width: 500px;
     }
 
     footer {
-      padding: 48px 24px;
+      width: 100%;
+      padding: 40px 24px;
       text-align: center;
       border-top: 1px solid var(--border);
       color: var(--text-secondary);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* Modal / Popup Interface */
+    /* Modal / Deep-Dive Popup Style */
     dialog {
       border: 1px solid var(--border);
-      background: #090d16;
+      background: #0d1322;
       color: var(--text-primary);
-      border-radius: 28px;
-      padding: 40px;
-      max-width: 650px;
+      border-radius: 24px;
+      padding: 36px;
+      max-width: 600px;
       width: 90%;
       margin: auto;
       outline: none;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(139, 92, 246, 0.3);
     }
     dialog::backdrop {
-      background: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(16px);
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(12px);
     }
     .close-btn {
       float: right;
       background: none;
       border: none;
       color: var(--text-secondary);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       cursor: pointer;
-      line-height: 1;
     }
     .close-btn:hover { color: #fff; }
     
     .modal-section {
-      margin-top: 24px;
+      margin-top: 20px;
       background: rgba(255, 255, 255, 0.01);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 20px;
     }
     .modal-section h4 {
+      font-family: var(--font-title);
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .modal-section p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    /* Toolkit Quick Grid */
-    .toolkit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .tool-box {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-    }
-    .tool-box span {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .tool-box p {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
     }
   </style>
@@ -387,7 +414,7 @@
 <div class="glow glow-mid"></div>
 
 <header>
-  <div class="logo">Elif Parıldar.<span>Growth</span></div>
+  <div class="logo">Elif Parıldar<span>.Growth</span></div>
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#academic">Education</a>
@@ -401,159 +428,196 @@
   <section class="hero">
     <span class="tagline">Psychology × Mobile Growth Strategy</span>
     <h1><span>Bridging human behavior and digital monetization.</span></h1>
-    <p>Designing cognitive architectures, conducting statistical workflows, and deploying data-validated A/B storefront experiments to eliminate user friction and optimize conversion rates.</p>
+    <p>Psychology Graduate and incoming Bayes Business School MSc candidate. Specializing in choice architecture, data analytics, and storefront A/B testing to eliminate cognitive friction and accelerate product growth.</p>
     <div class="cta-group">
-      <a href="#work" class="btn btn-primary">Review Work Experience</a>
-      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Direct Dispatch</a>
+      <a href="#work" class="btn btn-primary">Explore Research & Cases</a>
+      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Get in Touch</a>
     </div>
   </section>
 
   <!-- WORK & EXPERIENCES SECTION -->
-  <section id="work" style="margin-bottom: 80px;">
+  <section id="work">
     <div class="section-header">
-      <h2 class="section-title">Selected Work & Research</h2>
-      <p class="section-subtitle">Click on any card to dive deep into statistical workflows, hypotheses, and UI parameters.</p>
+      <h2 class="section-title">Featured Projects & Research</h2>
+      <p class="section-subtitle">Click on any card to dive deep into statistical methodologies, UI parameters, and frameworks.</p>
     </div>
 
-    <!-- Flawless Grid: Resolves the layout break completely -->
     <div class="grid-container">
-      
       <!-- Project 1 -->
       <div class="card" onclick="openProject('choice')">
         <div>
           <span class="card-meta">Behavioral Science & CRO</span>
-          <h3 class="card-title">Mitigating Choice Overload</h3>
-          <p class="card-body">A comprehensive experimental design addressing high-friction drop-offs in app storefronts. Explores how structured badge architectures and visual ranking systems ease cognitive decision fatigue.</p>
+          <h3 class="card-title">Consumer Decision Fatigue</h3>
+          <p class="card-body">An empirical A/B experiment (N=63) isolating how choice volume and visual "popularity badges" affect conversion rates and decision speeds on digital storefronts.</p>
         </div>
         <div class="tag-container">
-          <span class="tag">ANOVA / SPSS</span>
           <span class="tag">R Language</span>
-          <span class="tag">Experimental Setup</span>
-          <span class="tag">Cognitive Friction</span>
+          <span class="tag">Python</span>
+          <span class="tag">SPSS</span>
+          <span class="tag">Qualtrics</span>
         </div>
       </div>
 
       <!-- Project 2 -->
       <div class="card" onclick="openProject('dim')">
         <div>
-          <span class="card-meta">App Storefront UX / Product Specs</span>
-          <h3 class="card-title">Decision Intelligence UI (DIM)</h3>
-          <p class="card-body">High-fidelity interactive storefront assets built in Figma. Built to isolate cognitive biases, complete with detailed cohorts, conversion tracking structures, and alignment documentation for engineering teams.</p>
+          <span class="card-meta">App Storefront UX / Product Case</span>
+          <h3 class="card-title">Decision Intelligence Mode (DIM)</h3>
+          <p class="card-body">A conceptual Trendyol case study mapping interactive UI layers in Figma. Restructures app search filter architecture to optimize feature adoption and reduce cognitive load.</p>
         </div>
         <div class="tag-container">
-          <span class="tag">Figma Prototyping</span>
-          <span class="tag">ASO / CRO Design</span>
-          <span class="tag">A/B Test Cohorts</span>
-          <span class="tag">Storefront Optimization</span>
+          <span class="tag">Figma UI/UX</span>
+          <span class="tag">Storefront A/B Testing</span>
+          <span class="tag">AI Workflows</span>
         </div>
       </div>
 
+      <!-- Project 3 -->
+      <div class="card" onclick="openProject('dating')">
+        <div>
+          <span class="card-meta">Narrative Persuasion</span>
+          <h3 class="card-title">Online Dating Success Stories</h3>
+          <p class="card-body">Experimental research exploring narrative persuasion effects on digital matching platforms. Accepted and presented at the SWPA 2026 Conference.</p>
+        </div>
+        <div class="tag-container">
+          <span class="tag">Experimental Design</span>
+          <span class="tag">SWPA 2026</span>
+          <span class="tag">Data Analysis</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ACADEMIC & EDUCATION SECTION -->
-  <section id="academic" style="margin-bottom: 80px;">
+  <section id="academic">
     <div class="section-header">
-      <h2 class="section-title">Education</h2>
-      <p class="section-subtitle">Academic foundations translating empirical sciences into business growth.</p>
+      <h2 class="section-title">Education & Milestones</h2>
+      <p class="section-subtitle">Applying rigorous empirical sciences to high-performance product loops.</p>
     </div>
 
     <div class="list-container">
-      <!-- Özyeğin University -->
+      <div class="list-item">
+        <div class="list-info">
+          <h4>City, University of London — Bayes Business School</h4>
+          <p>MSc in Marketing Strategy & Consumer Insights (Incoming Candidate · Sept 2026)</p>
+        </div>
+        <span class="list-badge">London, UK</span>
+      </div>
+
       <div class="list-item">
         <div class="list-info">
           <h4>Özyeğin University</h4>
-          <p>BA in Psychology (English-medium) · High Academic Achievement (Honors Degree)</p>
+          <p>BA in Psychology · 50% Merit Scholarship (2022 - 2026)</p>
+          <p style="font-size: 0.8rem; color: #6b7280;">Relevant Focus: Computational Social Sciences (R-focused), Applied Social Psychology, Innovation Management.</p>
         </div>
-        <span class="list-badge">50% Scholarship</span>
-      </div>
-
-      <!-- Bayes Business School -->
-      <div class="list-item">
-        <div class="list-info">
-          <h4>Bayes Business School (City, University of London)</h4>
-          <p>MSc in Marketing Strategy & Innovation (Incoming/Ongoing) · Focused on Consumer Decision Intelligence</p>
-        </div>
-        <span class="list-badge">London, UK</span>
+        <span class="list-badge">Honors Degree</span>
       </div>
     </div>
   </section>
 
   <!-- TOOLKIT GRID -->
-  <section id="toolkit" style="margin-bottom: 80px;">
+  <section id="toolkit">
     <div class="section-header">
       <h2 class="section-title">Analytical Toolkit</h2>
-      <p class="section-subtitle">A balanced fusion of psychological metrics, UI prototyping, and data methodologies.</p>
+      <p class="section-subtitle">A cross-disciplinary fusion of behavioral architecture, UI prototyping, and data structures.</p>
     </div>
 
     <div class="toolkit-grid">
       <div class="tool-box">
-        <span>Quantitative Analytics</span>
-        <p>Statistical workflows, regression models, and data cleaning in R & Python.</p>
+        <span>Data & Analytics</span>
+        <p>R, Python, SQL, SPSS, and advanced data-cleaning workflows.</p>
       </div>
       <div class="tool-box">
-        <span>Behavioral CRO</span>
-        <p>A/B testing architectures, storefront design, and user journey hypothesis testing.</p>
+        <span>Mobile Growth / CRO</span>
+        <p>A/B testing architectures, storefront asset optimization, and ASO fundamentals.</p>
       </div>
       <div class="tool-box">
-        <span>UI/UX & Prototyping</span>
-        <p>Figma interface wireframing, cohort visual mapping, and functional layouts.</p>
+        <span>UI/UX Prototyping</span>
+        <p>Figma flow architecture, interface wireframing, and interactive layouts.</p>
       </div>
       <div class="tool-box">
-        <span>Cognitive Psych</span>
-        <p>Decision fatigue science, choice architecture, and user friction diagnostic loops.</p>
+        <span>Behavioral Psychology</span>
+        <p>Choice architecture, narrative persuasion frameworks, and user friction diagnostic loops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL CERTIFICATIONS -->
+  <section id="certs" style="margin-bottom: 60px;">
+    <div class="section-header">
+      <h2 class="section-title">Specializations & Extensions</h2>
+    </div>
+    <div class="toolkit-grid">
+      <div class="tool-box">
+        <span>Mathematics for ML</span>
+        <p>Imperial College London (Linear Algebra)</p>
+      </div>
+      <div class="tool-box">
+        <span>SQL for Data Science</span>
+        <p>UC Davis</p>
+      </div>
+      <div class="tool-box">
+        <span>Data Science Math Skills</span>
+        <p>Duke University</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT HERO -->
   <section id="contact" class="contact-section">
-    <span class="tagline">Work Engagement</span>
-    <h2>Let's build frictionless loops.</h2>
-    <p>I apply consumer behavioral science and analytics to maximize performance inside mobile product funnels. Let's start a conversation.</p>
+    <span class="tagline">Let's Connect</span>
+    <h2>Build Frictionless Product Funnels.</h2>
+    <p>Currently seeking growth and analytics internships. Let's build together.</p>
     <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">parildarelif@gmail.com</a>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Elif Parıldar. Designed with a meticulous, data-centric worldview.</p>
+  <p>&copy; 2026 Elif Parıldar. Designed with a growth-focused, behavioral worldview.</p>
 </footer>
 
-<!-- MODAL COMPONENT -->
+<!-- MODAL COMPONENT (DEEP-DIVE INFORMATION LAYER) -->
 <dialog id="projectModal">
   <button class="close-btn" onclick="closeModal()">&times;</button>
   <span class="card-meta" id="mLabel">Project Profile</span>
-  <h2 id="mTitle" style="margin: 12px 0 16px; font-weight: 800; letter-spacing: -0.03em;"></h2>
+  <h2 id="mTitle" style="margin: 8px 0 16px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -0.02em;"></h2>
   
-  <p id="mDesc" style="color: var(--text-secondary); line-height: 1.6; font-size: 1rem; margin-bottom: 20px;"></p>
+  <p id="mDesc" style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;"></p>
 
   <div class="modal-section">
-    <h4>Mathematical & Quantitative Methodology</h4>
+    <h4>Methodology & Core Architecture</h4>
     <p id="mMethod"></p>
   </div>
 
   <div class="modal-section">
-    <h4>Strategic Business Impact & CRO</h4>
+    <h4>Growth & Strategic Impact</h4>
     <p id="mImpact"></p>
   </div>
 </dialog>
 
 <script>
-  // Rich details populated natively from your real CV metrics and expertise
+  // Structured details safely pulled from your real academic and case data
   const details = {
     choice: {
       label: "Behavioral Science & CRO",
-      title: "Mitigating Choice Overload on Storefronts",
-      desc: "An extensive experimental setup designed to isolate how customer choice parameters impact storefront bounce rates. Based on cognitive psychology frameworks, this research evaluates visual architectures and popularity badges, validating strategies to streamline Decision-Making loops in app stores.",
-      method: "Leveraged SPSS and R for quantitative data-cleaning, outlier analysis, and multivariate regressions. Utilized ANOVA testing to identify statistical variances between control and experimental user cohorts under different choice overload scales.",
-      impact: "Provides mobile software products with actionable design systems to combat cart abandonment, optimizing Click-Through Rates (CTR) and Conversion Rates (CVR) by reducing cognitive load at the final point of purchase."
+      title: "Consumer Decision Fatigue & Choice Architecture",
+      desc: "An independent experimental research project targeted at optimizing storefront retention. It explores how structure, listing volume, and visual ranking elements modulate cognitive friction during product choice selection.",
+      method: "Deployed an A/B experiment (N=63) via Qualtrics. Utilized R, Python, and SPSS to perform data-cleaning, cohort performance tracking, and comparative speed metrics analysis.",
+      impact: "Empirically proved that strategic visual cues (popularity badges) successfully mitigate choice paralysis—offering mobile applications a clear tool to optimize conversion rates (CVR) and minimize user onboarding drop-offs."
     },
     dim: {
-      label: "App Storefront UX / Product Specs",
-      title: "Decision Intelligence UI (DIM)",
-      desc: "Designed complete visual flows in Figma specifically targeted at neutralizing consumer choice paralysis. This project maps exactly how interactive, low-friction mobile screens can guide user attention naturally toward target actions.",
-      method: "Structured experimental UI assets accompanied by complete A/B testing specifications. Mapped user flow parameters, defined cohort logic, and set behavioral metric endpoints for clear software engineering implementation.",
-      impact: "Creates a streamlined, conversion-focused storefront ready for rapid iteration. Directly designed to increase Day-1 retention, subscription sign-ups, and baseline monetization rates for mobile apps."
+      label: "App Storefront UX / Product Case Study",
+      title: "Decision Intelligence Mode (DIM)",
+      desc: "A strategic visual and product layout case study tailored for Trendyol. It aims to completely reinvent search results architectures through behavioral design loops.",
+      method: "Structured low-friction interactive interface components natively inside Figma. Configured complete AI-enhanced workflow processes alongside structured A/B test layout blueprints.",
+      impact: "Reduces search-to-purchase latency, significantly easing cognitive load. Built directly to accelerate initial feature adoption metrics and optimize day-1 subscription/retention levels."
+    },
+    dating: {
+      label: "Conference Research & Presentation",
+      title: "Online Dating Persuasion: Success Story Effect",
+      desc: "An analytical study inspecting cognitive and emotional engagement triggers through narrative persuasion layers embedded inside modern dating apps.",
+      method: "Conceptualized complex experimental conditions tracking the success story effect. Executed precise statistical evaluation protocols to assess relationship intent variance.",
+      impact: "Formally accepted and presented at the SWPA 2026 Conference and the Çiğdem Kağıtçıbaşı Festival, bridging empirical psychological science with interface platform dynamics."
     }
   };
 
@@ -573,7 +637,6 @@
     modal.close();
   }
 
-  // Close when clicking outside of the modal
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.close();
   });
