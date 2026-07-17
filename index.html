@@ -3,1113 +3,501 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elif Parıldar — Consumer Behavior & Mobile Growth</title>
-  <meta name="description" content="Elif Parıldar — Psychology × Data Science. Specializing in mobile growth, storefront optimization, A/B testing, and behavioral analytics." />
-  <meta name="theme-color" content="#0b1220" />
+  <title>Elif Parıldar — Mobile Growth & Storefront Science</title>
+  <meta name="description" content="Psychology × Mobile Growth. Specializing in storefront optimization, A/B testing, and behavioral dynamics." />
   <style>
-    :root{
-      --bg: #0b1220;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --faint: rgba(255,255,255,.45);
-      --line: rgba(255,255,255,.14);
-      --brand: #7c3aed; /* violet */
-      --brand2:#22c55e; /* green */
-      --brand3:#38bdf8; /* sky */
-      --warn:#fb7185; /* rose */
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 28px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --ease: cubic-bezier(.2,.8,.2,1);
-      --max: 1120px;
-    }
-    [data-theme="light"]{
-      --bg:#f7f8fc;
-      --panel: rgba(0,0,0,.05);
-      --panel2: rgba(0,0,0,.07);
-      --text: rgba(0,0,0,.90);
-      --muted: rgba(0,0,0,.64);
-      --faint: rgba(0,0,0,.46);
-      --line: rgba(0,0,0,.12);
-      --shadow: 0 18px 50px rgba(0,0,0,.12);
-      --shadow2: 0 10px 30px rgba(0,0,0,.10);
-      --themeGlow: radial-gradient(900px 600px at 10% 10%, rgba(124,58,237,.22), transparent 55%),
-                   radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.18), transparent 52%),
-                   radial-gradient(900px 700px at 50% 100%, rgba(56,189,248,.16), transparent 55%);
+    :root {
+      --bg: #070a13;
+      --panel: rgba(255, 255, 255, 0.03);
+      --panel-hover: rgba(255, 255, 255, 0.06);
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --line: rgba(255, 255, 255, 0.07);
+      --brand: #8b5cf6; /* HubX Purple Glow */
+      --brand-glow: rgba(139, 92, 246, 0.15);
+      --sans: "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
       font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      min-height:100vh;
-    }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{
-      position:relative;
-      isolation:isolate;
-      overflow:hidden;
-    }
-    .bgGlow{
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(900px 600px at 10% 10%, rgba(124,58,237,.35), transparent 55%),
-        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.25), transparent 52%),
-        radial-gradient(900px 700px at 50% 100%, rgba(56,189,248,.22), transparent 55%);
-      filter: blur(0px);
-      z-index:-2;
-      opacity:.9;
-    }
-    [data-theme="light"] .bgGlow{ background: var(--themeGlow); opacity:1; }
-
-    .noise{
-      position:absolute; inset:0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='210'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='210' height='210' filter='url(%23n)' opacity='.33'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.18;
-      z-index:-1;
-      pointer-events:none;
-    }
-    header{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(14px);
-      background: color-mix(in oklab, var(--bg) 70%, transparent);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      max-width: var(--max);
-      margin:0 auto;
-      padding: 14px 18px;
-      display:flex;
-      gap:14px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight: 800;
-      letter-spacing:.2px;
-    }
-    .logo{
-      width:34px; height:34px;
-      border-radius:12px;
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(56,189,248,1));
-      box-shadow: 0 10px 26px rgba(124,58,237,.35);
-      display:grid; place-items:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
-      transform: rotate(20deg);
-      opacity:.55;
-    }
-    .logo span{
-      position:relative;
-      font-family: var(--mono);
-      font-size: 14px;
-      color: rgba(255,255,255,.95);
-    }
-    nav ul{
-      list-style:none;
-      margin:0; padding:0;
-      display:flex; gap:14px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    nav a{
-      padding:10px 12px;
-      border-radius: 12px;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 14px;
-      transition: background .2s var(--ease), color .2s var(--ease);
-    }
-    nav a:hover{ background: var(--panel); color: var(--text); }
-    nav a.active{ background: color-mix(in oklab, var(--brand) 18%, var(--panel)); color: var(--text); }
-
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: color-mix(in oklab, var(--panel) 82%, transparent);
-      box-shadow: var(--shadow2);
-      color: var(--text);
-      font-weight: 700;
-      font-size: 14px;
-      cursor:pointer;
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
-      user-select:none;
-    }
-    .btn:hover{ transform: translateY(-1px); background: color-mix(in oklab, var(--panel2) 88%, transparent); border-color: color-mix(in oklab, var(--brand) 35%, var(--line)); }
-    .btn:active{ transform: translateY(0px) scale(.99); }
-
-    .btnPrimary{
-      border-color: color-mix(in oklab, var(--brand) 45%, var(--line));
-      background: linear-gradient(135deg, color-mix(in oklab, var(--brand) 35%, var(--panel)),
-                                           color-mix(in oklab, var(--brand3) 22%, var(--panel)));
-    }
-    .btnPrimary:hover{ border-color: color-mix(in oklab, var(--brand3) 55%, var(--brand)); }
-
-    .icon{ width:18px; height:18px; display:inline-block; }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 13px;
-    }
-    main{ max-width: var(--max); margin:0 auto; padding: 22px 18px 80px; }
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
-      padding-top: 12px;
-      align-items:stretch;
-    }
-    @media (max-width: 960px){ .hero{ grid-template-columns: 1fr; } }
-
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      background: color-mix(in oklab, var(--panel) 86%, transparent);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .cardInner{ padding: 22px 22px; }
-    .headline{
-      font-size: clamp(28px, 3.3vw, 44px);
-      line-height: 1.05;
-      letter-spacing: -0.6px;
-      margin: 10px 0 10px;
-      font-weight: 900;
-    }
-    .sub{
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .heroActions{
-      display:flex; gap: 10px; flex-wrap: wrap;
-      margin-top: 16px;
-    }
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    @media (max-width: 520px){ .miniGrid{ grid-template-columns: 1fr; } }
-    .mini{
-      border:1px solid var(--line);
-      border-radius: 18px;
-      background: color-mix(in oklab, var(--panel2) 65%, transparent);
-      padding: 12px 12px;
-    }
-    .mini h4{ margin:0; font-size: 13px; color: var(--muted); font-weight: 800; letter-spacing:.2px; }
-    .mini p{ margin:6px 0 0; font-weight: 800; }
-    .mini small{ color: var(--faint); font-weight: 650; }
-
-    .side{ display:flex; flex-direction:column; gap: 14px; }
-    .profile{ padding: 18px 18px; }
-    .avatar{
-      width: 92px; height: 92px;
-      border-radius: 26px;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 35% 30%, rgba(255,255,255,.55), transparent 45%),
-        linear-gradient(135deg, rgba(124,58,237,.75), rgba(34,197,94,.55));
-      box-shadow: 0 18px 50px rgba(0,0,0,.30);
-      display:grid; place-items:center;
-      margin-bottom: 12px;
-      position:relative;
-      overflow:hidden;
-    }
-    .avatar span{
-      font-family: var(--mono);
-      font-weight: 900;
-      letter-spacing:.5px;
-      color: rgba(255,255,255,.95);
-      font-size: 22px;
-    }
-    .profile h3{ margin:6px 0 6px; font-size: 16px; font-weight: 900; }
-    .profile p{ margin:0; color: var(--muted); line-height: 1.55; font-size: 14px; }
-    .links{
-      display:flex; gap: 10px; flex-wrap: wrap;
-      margin-top: 14px;
-    }
-    .linkBtn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: var(--panel);
-      color: var(--text);
-      font-weight: 800;
-      font-size: 13px;
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
-    }
-    .linkBtn:hover{ transform: translateY(-1px); border-color: color-mix(in oklab, var(--brand2) 40%, var(--line)); background: color-mix(in oklab, var(--brand2) 10%, var(--panel)); }
-    .kbd{
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 8px;
-      border:1px solid var(--line);
-      color: var(--muted);
-      background: color-mix(in oklab, var(--panel) 82%, transparent);
+      letter-spacing: -0.01em;
+      overflow-x: hidden;
+      line-height: 1.5;
     }
 
-    section{ margin-top: 22px; }
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin: 0 2px 10px;
-    }
-    .sectionTitle h2{
-      margin:0;
-      font-size: 18px;
-      font-weight: 950;
-      letter-spacing: -.3px;
-    }
-    .sectionTitle p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .col6{ grid-column: span 6; }
-    .col4{ grid-column: span 4; }
-    .col8{ grid-column: span 8; }
-    .col12{ grid-column: span 12; }
-    @media (max-width: 960px){
-      .col6,.col4,.col8{ grid-column: span 12; }
-    }
-
-    .pillRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
-    .muted{ color: var(--muted); }
-    .tiny{ font-size: 12px; color: var(--faint); line-height: 1.5; }
-
-    .list{ display:flex; flex-direction:column; gap: 10px; }
-    .item{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: color-mix(in oklab, var(--panel) 86%, transparent);
-      padding: 14px 14px;
-    }
-    .itemTop{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:flex-start;
-      flex-wrap:wrap;
-    }
-    .item h3{ margin:0; font-size: 15px; font-weight: 950; letter-spacing:-.2px; }
-    .meta{ color: var(--faint); font-weight: 700; font-size: 12px; }
-    .item p{ margin: 8px 0 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
-
-    .toolbar{
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-      flex-wrap:wrap;
-      margin: 10px 0 12px;
-    }
-    .search{
-      flex: 1 1 260px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 10px 12px;
-    }
-    .search input{
+    /* Ambient Glow Background */
+    .glow-container {
+      position: absolute;
       width: 100%;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 650;
+      height: 100%;
+      top: 0; left: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
     }
-    .filters{
-      display:flex; gap:8px; flex-wrap:wrap;
-      align-items:center;
-      justify-content:flex-end;
+    .glow-1 {
+      position: absolute;
+      top: -10%; left: 20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+      filter: blur(80px);
     }
-    .filterBtn{
-      padding: 8px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: var(--panel);
-      color: var(--muted);
-      font-weight: 850;
-      font-size: 12px;
-      cursor:pointer;
-      transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease), transform .18s var(--ease);
-    }
-    .filterBtn:hover{ transform: translateY(-1px); border-color: color-mix(in oklab, var(--brand3) 40%, var(--line)); }
-    .filterBtn.active{
-      color: var(--text);
-      background: color-mix(in oklab, var(--brand) 18%, var(--panel2));
-      border-color: color-mix(in oklab, var(--brand) 42%, var(--line));
+    .glow-2 {
+      position: absolute;
+      top: 40%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      filter: blur(80px);
     }
 
-    .projectGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-    .projectCard{
-      grid-column: span 6;
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      background: color-mix(in oklab, var(--panel) 88%, transparent);
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-      position:relative;
-      cursor:pointer;
-      transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-      min-height: 210px;
-    }
-    .projectCard:hover{
-      transform: translateY(-2px);
-      border-color: color-mix(in oklab, var(--brand3) 42%, var(--line));
-      background: color-mix(in oklab, var(--panel2) 76%, transparent);
-    }
-    .projectCard .top{
-      padding: 16px 16px 10px;
-      display:flex; justify-content:space-between; gap:12px;
-      align-items:flex-start;
-      flex-wrap:wrap;
-    }
-    .badge{
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: color-mix(in oklab, var(--panel2) 78%, transparent);
-      font-weight: 900;
-      font-size: 11px;
-      color: var(--muted);
-    }
-    .projectCard h3{ margin:0; font-size: 16px; font-weight: 950; letter-spacing:-.3px; }
-    .projectCard p{
-      margin: 6px 16px 0;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-    .projectCard .bottom{
-      display:flex; gap:8px; flex-wrap:wrap;
-      padding: 12px 16px 16px;
-      margin-top: 10px;
-    }
-    .tag{
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: color-mix(in oklab, var(--panel) 82%, transparent);
-    }
-    @media (max-width: 960px){ .projectCard{ grid-column: span 12; } }
-
-    dialog{
-      border:none;
-      width:min(880px, calc(100% - 26px));
-      border-radius: 26px;
-      padding:0;
-      background: color-mix(in oklab, var(--bg) 70%, var(--panel2));
-      box-shadow: var(--shadow);
-      color: var(--text);
-    }
-    dialog::backdrop{ background: rgba(0,0,0,.55); backdrop-filter: blur(6px); }
-    .modalHead{
-      padding: 16px 18px;
+    header {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
       border-bottom: 1px solid var(--line);
-      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
     }
-    .modalHead h3{ margin:0; font-size: 18px; font-weight: 950; letter-spacing:-.2px; }
-    .closeBtn{
-      border:1px solid var(--line);
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo span {
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    /* Hero Section (Ultra Minimal) */
+    .hero {
+      max-width: 800px;
+      margin-bottom: 100px;
+    }
+    .tagline {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--brand);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+    h1 span {
+      background: linear-gradient(to right, #ffffff, #9ca3af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+    }
+    .btn-secondary {
       background: var(--panel);
       color: var(--text);
-      border-radius: 14px;
-      padding: 10px 12px;
-      cursor:pointer;
-      font-weight: 900;
+      border: 1px solid var(--line);
     }
-    .modalBody{ padding: 16px 18px 18px; }
-    .modalBody p{ margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
-    .cols2{
-      display:grid; grid-template-columns: 1.3fr .7fr; gap:12px;
-      margin-top: 12px;
+    .btn-secondary:hover {
+      background: var(--panel-hover);
+      transform: translateY(-2px);
     }
-    .statBox{
-      border:1px solid var(--line);
-      background: var(--panel);
-      border-radius: 18px;
-      padding: 12px 12px;
-    }
-    .statBox h4{ margin:0; font-size: 12px; color: var(--faint); font-weight: 900; letter-spacing:.2px; }
-    .statBox div{ margin-top:6px; font-weight: 950; font-size: 14px; }
-    .bullets{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.65; }
-    .bullets li{ margin: 6px 0; }
-    @media (max-width: 860px){ .cols2{ grid-template-columns: 1fr; } }
 
-    footer{
-      margin-top: 28px;
-      border-top: 1px solid var(--line);
-      padding: 22px 18px 30px;
+    /* Grid Layout for Sleek Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      margin-bottom: 100px;
+    }
+    .col-8 { grid-column: span 8; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
+
+    @media (max-width: 900px) {
+      .col-8, .col-4, .col-6 { grid-column: span 12; }
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      background: var(--panel-hover);
+      transform: translateY(-4px);
+    }
+    
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Visual Specs / Mini Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .stat-val {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Tech Pill Grid */
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--muted);
     }
-    .footerInner{
-      max-width: var(--max);
-      margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      flex-wrap:wrap;
+
+    /* Projects Section */
+    .section-header {
+      margin-bottom: 40px;
     }
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%) translateY(20px);
-      opacity:0;
-      pointer-events:none;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: color-mix(in oklab, var(--panel2) 85%, var(--bg));
-      box-shadow: var(--shadow2);
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 4px;
+    }
+
+    /* Contact Block (HubX style Footer call to action) */
+    .contact-hero {
+      text-align: center;
+      padding: 80px 24px;
+      background: radial-gradient(circle at 50% 50%, var(--brand-glow), transparent 60%);
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      margin-top: 100px;
+    }
+    .contact-hero h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Quick Interaction Modal */
+    dialog {
+      border: 1px solid var(--line);
+      background: #0d111d;
       color: var(--text);
-      font-weight: 850;
-      transition: opacity .22s var(--ease), transform .22s var(--ease);
-      z-index: 50;
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      outline: none;
     }
-    .toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
-
-    .reveal{ opacity:0; transform: translateY(10px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-    .reveal.in{ opacity:1; transform: translateY(0); }
-
-    @media print{
-      header, .toolbar, .heroActions, .filters, .toast{ display:none !important; }
-      body{ background:#fff; color:#000; }
-      .card, .item, .projectCard{ box-shadow:none; }
-      a{ text-decoration:underline; }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(12px);
+    }
+    .close-modal {
+      float: right;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
   </style>
 </head>
-
 <body>
-<div class="wrap" id="top">
-  <div class="bgGlow"></div>
-  <div class="noise"></div>
 
-  <header>
-    <div class="nav">
-      <div class="brand" aria-label="Site brand">
-        <div class="logo" aria-hidden="true"><span>EP</span></div>
-        <div>
-          <div style="font-weight:950; line-height:1.05;">Elif Parıldar</div>
-          <div class="tiny" style="margin-top:2px;">Consumer Behavior & Mobile Growth · Bayes Business School MSc Candidate</div>
-        </div>
-      </div>
-
-      <nav aria-label="Primary">
-        <ul id="navLinks">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certs">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <button class="btn" id="themeBtn" type="button" title="Toggle theme">
-              <span class="icon" aria-hidden="true" id="themeIcon"></span>
-              Theme
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="hero">
-      <div class="card reveal">
-        <div class="cardInner">
-          <span class="chip">Mobile Growth · Storefront UX · Behavioral Analytics · Experimentation</span>
-          <h1 class="headline">I bridge the gap between psychology, user insights, and business growth.</h1>
-          <p class="sub">
-            I’m a Psychology Graduate (BA) from <b>Özyeğin University</b> and an incoming <b>Bayes Business School</b> MSc Candidate. I focus on <b>Mobile Growth, Storefront Optimization, and Choice Architecture</b>. I use data-driven behavioral analytics to design A/B test setups, optimize storefront visuals, and reduce cognitive load to drive conversion.
-          </p>
-
-          <div class="heroActions" role="group" aria-label="Quick actions">
-            <a class="btn btnPrimary" href="#projects">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/>
-                </svg>
-              </span>
-              Explore Growth Projects
-            </a>
-
-            <button class="btn" id="copyEmailBtn" type="button">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/>
-                </svg>
-              </span>
-              Copy Email
-              <span class="kbd">⌘ / Ctrl</span><span class="kbd">K</span>
-            </button>
-
-            <button class="btn" type="button" onclick="window.print()">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/>
-                </svg>
-              </span>
-              Print CV / Save PDF
-            </button>
-          </div>
-
-          <div class="miniGrid" aria-label="Highlights">
-            <div class="mini">
-              <h4>Current Focus</h4>
-              <p>Consumer Decision Science</p>
-              <small>psychology → storefront optimization</small>
-            </div>
-            <div class="mini">
-              <h4>Core Toolkit</h4>
-              <p>SQL · Python · R · Figma</p>
-              <small>with SPSS for advanced metrics</small>
-            </div>
-            <div class="mini">
-              <h4>Growth Method</h4>
-              <p>Storefront A/B Testing</p>
-              <small>mitigating user choice overload</small>
-            </div>
-            <div class="mini">
-              <h4>Upcoming Degree</h4>
-              <p>Bayes Business School</p>
-              <small>MSc Student (London)</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="side">
-        <div class="card profile reveal">
-          <div class="avatar" aria-hidden="true"><span>EP</span></div>
-          <h3>Elif Parıldar</h3>
-          <p>
-            Psychology (BA, Özyeğin Graduate)<br>
-            Specializing in behavioral economics, visual storefront cues, and computational marketing analytics.
-          </p>
-          <div class="links" aria-label="External links">
-            <a class="linkBtn" href="https://www.linkedin.com/in/elif-par%C4%B1ldar-2b7152313" target="_blank" rel="noreferrer">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.2 23.9h4.6V7.98H.2V23.9zM8.3 7.98h4.4v2.17h.06c.61-1.15 2.11-2.36 4.35-2.36 4.65 0 5.51 3.06 5.51 7.04v9.07h-4.6v-8.04c0-1.92-.03-4.39-2.67-4.39-2.67 0-3.08 2.09-3.08 4.25v8.18H8.3V7.98z"/></svg>
-              </span>
-              LinkedIn
-            </a>
-            <a class="linkBtn" href="https://www.kaggle.com/elifparldar" target="_blank" rel="noreferrer">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.52 2.04c-2.37 0-4.27.73-5.72 2.18C5.35 5.68 4.62 7.6 4.62 9.98v4.05c0 2.38.73 4.3 2.18 5.75 1.45 1.45 3.35 2.18 5.72 2.18h.86v-3.42h-.86c-1.28 0-2.32-.4-3.11-1.2-.79-.8-1.19-1.84-1.19-3.12v-4.3c0-1.28.4-2.32 1.19-3.12.79-.8 1.83-1.2 3.11-1.2h.86V2.04h-.86Z"/><path d="M14.38 2.04h.86v3.42h-.86c-1.28 0-2.32.4-3.11 1.2-.79.8-1.19 1.84-1.19 3.12v4.3c0 1.28.4 2.32 1.19 3.12.79.8 1.83 1.2 3.11 1.2h.86v3.42h-.86c-2.37 0-4.27-.73-5.72-2.18-1.45-1.45-2.18-3.37-2.18-5.75V9.98c0-2.38.73-4.3 2.18-5.75 1.45-1.45 3.35-2.18 5.72-2.18Z" opacity=".15"/></svg>
-              </span>
-              Kaggle
-            </a>
-            <a class="linkBtn" href="#contact">
-              <span class="icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/>
-                </svg>
-              </span>
-              Contact
-            </a>
-          </div>
-          <p class="tiny" style="margin-top:12px;">
-            Tip: Press <span class="kbd">⌘/Ctrl</span> <span class="kbd">K</span> to quickly copy my email.
-          </p>
-        </div>
-
-        <div class="card reveal">
-          <div class="cardInner">
-            <div class="sectionTitle" style="margin:0 0 10px;">
-              <h2 style="font-size:16px;">Target Roles</h2>
-              <p>growth & growth marketing</p>
-            </div>
-            <div class="list">
-              <div class="item" style="padding:12px 12px;">
-                <div class="itemTop">
-                  <h3>Mobile Growth Associate</h3>
-                  <span class="meta">ASO & Storefront</span>
-                </div>
-                <p style="margin-top:6px;">Optimizing user journeys, storefront metadata, creative assets, and driving organic/paid acquisition loops.</p>
-              </div>
-              <div class="item" style="padding:12px 12px;">
-                <div class="itemTop">
-                  <h3>Conversion Optimization (CRO)</h3>
-                  <span class="meta">A/B Testing</span>
-                </div>
-                <p style="margin-top:6px;">Utilizing behavioral science, Figma, and data analytics to design storefront experiments that scale.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section id="about" class="reveal">
-      <div class="sectionTitle">
-        <h2>About Me</h2>
-        <p>Combining consumer psychology with modern data workflows</p>
-      </div>
-
-      <div class="grid">
-        <div class="card col8">
-          <div class="cardInner">
-            <p class="sub" style="margin:0;">
-              In the app economy, users make a download decision within 3 to 6 seconds. This realization shifted my focus from pure academic psychology to <b>Consumer Behavior, Growth Marketing, and Storefront Optimization</b>. 
-              <br><br>
-              I specialize in understanding the cognitive mechanics of choice—such as <b>choice overload, visual friction, and decision fatigue</b>—and transforming them into measurable growth. I design end-to-end A/B tests on creative store assets, query and analyze behavioral data, and model user flows. With a background in psychology and an analytical toolkit, I help product and marketing teams build storefronts that reduce friction and maximize conversion rates.
-            </p>
-            <div class="pillRow" style="margin-top:14px;">
-              <span class="chip">Storefront A/B Testing</span>
-              <span class="chip">Consumer Decision Architecture</span>
-              <span class="chip">App Store Optimization (ASO)</span>
-              <span class="chip">Behavioral Data Science</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col4">
-          <div class="cardInner">
-            <div class="sectionTitle" style="margin:0 0 10px;">
-              <h2 style="font-size:16px;">Education</h2>
-              <p>Academic Path</p>
-            </div>
-            <div class="item" style="margin-top:6px;">
-              <div class="itemTop">
-                <h3>Özyeğin University</h3>
-                <span class="meta">Istanbul</span>
-              </div>
-              <p>
-                BA in Psychology (English-medium)
-                <br><span class="tiny">Honors: 50% High-Achievement Scholarship</span>
-              </p>
-            </div>
-            <div class="item" style="margin-top:10px;">
-              <div class="itemTop">
-                <h3>Bayes Business School</h3>
-                <span class="meta">London</span>
-              </div>
-              <p>Incoming MSc Student bridging behavioral insights with modern business analytics.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="reveal">
-      <div class="sectionTitle">
-        <h2>Selected Growth Projects</h2>
-        <p>A/B testing, user behavior modeling, and analytics.</p>
-      </div>
-
-      <div class="toolbar">
-        <div class="search" role="search">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path>
-            </svg>
-          </span>
-          <input id="projectSearch" type="text" placeholder="Search projects (e.g., 'Figma', 'A/B Test', 'R')…" autocomplete="off" />
-        </div>
-        <div class="filters" aria-label="Project filters">
-          <button class="filterBtn active" data-filter="all" type="button">All</button>
-          <button class="filterBtn" data-filter="growth" type="button">Mobile Growth</button>
-          <button class="filterBtn" data-filter="experiment" type="button">Experiment</button>
-          <button class="filterBtn" data-filter="persuasion" type="button">Persuasion</button>
-        </div>
-      </div>
-
-      <div class="projectGrid" id="projectGrid" aria-label="Project cards"></div>
-    </section>
-
-    <section id="skills" class="reveal">
-      <div class="sectionTitle">
-        <h2>Growth & Technical Skills</h2>
-        <p>Tools and workflows that convert insights into revenue loops</p>
-      </div>
-
-      <div class="grid">
-        <div class="card col6">
-          <div class="cardInner">
-            <div class="sectionTitle" style="margin:0 0 10px;">
-              <h2 style="font-size:16px;">Core Growth Competencies</h2>
-              <p>strategy + execution</p>
-            </div>
-            <div class="list">
-              <div class="item">
-                <div class="itemTop">
-                  <h3>Storefront Optimization</h3>
-                  <span class="meta">ASO & CRO</span>
-                </div>
-                <p>Designing and testing visual cues, title frameworks, app icon variations, and screenshot hierarchies to boost store conversion rate (CVR).</p>
-              </div>
-              <div class="item">
-                <div class="itemTop">
-                  <h3>Experimentation & Testing</h3>
-                  <span class="meta">A/B Tests</span>
-                </div>
-                <p>Formulating solid hypotheses, designing between-subject store assets, setting up confidence levels, and measuring retention impact.</p>
-              </div>
-              <div class="item">
-                <div class="itemTop">
-                  <h3>Data & Quantitative Analysis</h3>
-                  <span class="meta">SQL & Python</span>
-                </div>
-                <p>Analyzing cohort data, manipulating datasets using Python and SQL, visualizing user behavior patterns, and extracting structural growth opportunities.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col6">
-          <div class="cardInner">
-            <div class="sectionTitle" style="margin:0 0 10px;">
-              <h2 style="font-size:16px;">Growth Tools</h2>
-              <p>Platforms I actively leverage</p>
-            </div>
-            <div class="pillRow" style="margin-top:0;">
-              <span class="chip">SQL</span>
-              <span class="chip">Python (Pandas, Scikit-Learn)</span>
-              <span class="chip">R (ggplot2)</span>
-              <span class="chip">Figma (UX/UI Prototyping)</span>
-              <span class="chip">Qualtrics</span>
-              <span class="chip">SPSS</span>
-              <span class="chip">Google Sheets</span>
-            </div>
-
-            <div class="item" style="margin-top:12px;">
-              <div class="itemTop">
-                <h3>Communication & Alignment</h3>
-                <span class="meta">cross-functional</span>
-              </div>
-              <p>
-                Bridging technical product development with creative designers to align storefront A/B experiments with behavioral science standards.
-              </p>
-            </div>
-
-            <div class="item" style="margin-top:10px;">
-              <div class="itemTop">
-                <h3>Work Ethic</h3>
-                <span class="meta">how I operate</span>
-              </div>
-              <p>Execution-oriented, analytical, data-informed, and highly structured under fast-paced growth environments.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="certs" class="reveal">
-      <div class="sectionTitle">
-        <h2>Certifications & Professional Development</h2>
-        <p>Expanding the technical and marketing toolkit</p>
-      </div>
-
-      <div class="grid">
-        <div class="card col12">
-          <div class="cardInner">
-            <div class="list">
-              <div class="item">
-                <div class="itemTop">
-                  <h3>Google Advanced Data Analytics Certificate</h3>
-                  <span class="meta">Google / Coursera (Ongoing)</span>
-                </div>
-                <p>Focusing on statistical workflows, regression modeling, and Python-based data cleaning processes for consumer insight extractions.</p>
-              </div>
-              <div class="item">
-                <div class="itemTop">
-                  <h3>Advanced IELTS 7.5</h3>
-                  <span class="meta">IELTS (2025)</span>
-                </div>
-                <p>Certified English proficiency enabling global team collaboration and seamless communication.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="contact">
-    <div class="footerInner">
-      <div>
-        <div style="font-weight:900; font-size:18px;">Let's drive some growth together.</div>
-        <p style="margin:6px 0 0; font-size:14px;">Always open to discuss mobile storefront optimization, consumer psychology, or growth analytics roles.</p>
-      </div>
-      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
-        <a class="btn btnPrimary" href="mailto:parildarelif@gmail.com">parildarelif@gmail.com</a>
-        <span class="tiny">Designed for Growth × Data Science</span>
-      </div>
-    </div>
-  </footer>
+<div class="glow-container">
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite">Email copied to clipboard!</div>
-
-<dialog id="projectModal">
-  <div class="modalHead">
-    <div>
-      <span class="badge" id="modalBadge"></span>
-      <h3 id="modalTitle" style="margin-top:4px;"></h3>
-    </div>
-    <button class="closeBtn" id="modalClose" aria-label="Close modal">&times;</button>
+<header>
+  <div class="logo">Elif Parıldar.<span>Growth</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Work</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="modalBody">
-    <div class="cols2">
-      <div>
-        <p id="modalDesc"></p>
-        <ul class="bullets" id="modalBullets"></ul>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div class="statBox">
-          <h4>Key Methods / Stack</h4>
-          <div id="modalStack" style="font-family: var(--mono); font-size:12px; line-height:1.4;"></div>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <span class="tagline">Psychology × Mobile Growth</span>
+    <h1><span>Weaving behavioral science into digital growth loops.</span></h1>
+    <p>I build storefront hypotheses, optimize conversion psychology, and analyze user journeys using data-driven insights.</p>
+    <div class="cta-group">
+      <a href="#projects" class="btn btn-primary">See My Work</a>
+      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- WORK / PROJECTS SECTION -->
+  <section id="projects" style="margin-bottom: 100px;">
+    <div class="section-header">
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">Data-backed conversion and user psychology experiments.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Project 1 -->
+      <div class="card col-6" onclick="openProject('choice')">
+        <span class="card-label">Conversion Science</span>
+        <h3 class="card-title">Mitigating Choice Overload</h3>
+        <p class="card-desc">An experimental study assessing how visual design structures and badge architectures reduce cognitive friction and drop-off in storefronts.</p>
+        <div class="pill-container">
+          <span class="pill">R</span>
+          <span class="pill">Python</span>
+          <span class="pill">SPSS</span>
+          <span class="pill">Quantitative Modeling</span>
         </div>
-        <div class="statBox">
-          <h4>Impact Value</h4>
-          <div id="modalImpact"></div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card col-6" onclick="openProject('dim')">
+        <span class="card-label">App Storefront UX</span>
+        <h3 class="card-title">Decision Intelligence UI (DIM)</h3>
+        <p class="card-desc">Interactive mobile storefront concept designed to lower choice paralysis, featuring complete A/B testing structures and developer product specifications.</p>
+        <div class="pill-container">
+          <span class="pill">Figma</span>
+          <span class="pill">Storefront Optimization</span>
+          <span class="pill">A/B Testing</span>
+          <span class="pill">CRO</span>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- EDUCATION & SKILLS IN ONE SLEEK GRID -->
+  <section id="education">
+    <div class="grid">
+      <!-- Education Card -->
+      <div class="card col-7">
+        <span class="card-label">Education</span>
+        <h3 class="card-title">Academic Foundation</h3>
+        <p class="card-desc" style="margin-bottom: 16px;">Bridging pure human psychology with international business perspectives.</p>
+        
+        <div class="stat-item" style="margin-bottom: 12px;">
+          <div class="stat-val">Özyeğin University</div>
+          <div class="stat-lbl">BA in Psychology (Honors / 50% High-Achievement Scholarship)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">Bayes Business School, London</div>
+          <div class="stat-lbl">Incoming MSc Student — focus on commercial behavioral metrics</div>
+        </div>
+      </div>
+
+      <!-- Quick Stats / Core focus -->
+      <div class="card col-5">
+        <span class="card-label">Core Focus</span>
+        <h3 class="card-title">My Toolkit</h3>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-val">SQL/R</div>
+            <div class="stat-lbl">Data Analysis</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">Figma</div>
+            <div class="stat-lbl">UI/UX Layouts</div>
+          </div>
+        </div>
+        <div class="stats-row" style="margin-top: 12px;">
+          <div class="stat-item">
+            <div class="stat-val">A/B Test</div>
+            <div class="stat-lbl">Hypothesis Setup</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">Psych</div>
+            <div class="stat-lbl">Cognitive Friction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT HERO -->
+  <section id="contact" class="contact-hero">
+    <span class="tagline">Let's Connect</span>
+    <h2>Ready to drive scalable growth?</h2>
+    <p style="color: var(--muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">
+      I'm looking to apply behavioral theories directly to mobile conversion loops. Let's build something exceptional.
+    </p>
+    <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">parildarelif@gmail.com</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Elif Parıldar. Shaped with a minimalist and data-centric mindset.</p>
+</footer>
+
+<!-- Modern Modal Popups -->
+<dialog id="projectModal">
+  <button class="close-modal" onclick="closeModal()">&times;</button>
+  <span class="card-label" id="mLabel">Project details</span>
+  <h2 id="mTitle" style="margin: 12px 0 16px; font-weight: 900; letter-spacing: -0.03em;"></h2>
+  <p id="mDesc" style="color: var(--muted); margin-bottom: 24px; line-height: 1.6;"></p>
+  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 16px; padding: 20px;">
+    <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand); margin-bottom: 8px;">Stack & Target Loop</h4>
+    <p id="mStack" style="font-size: 0.9rem; font-weight: 600;"></p>
   </div>
 </dialog>
 
 <script>
-  // 1. Projects Data
-  const projects = [
-    {
-      id: "choice-overload",
+  const details = {
+    choice: {
       title: "Consumer Decision Fatigue & Choice Architecture",
-      subtitle: "Experimental study on mitigating choice overload via visual cues to increase conversion rates.",
-      category: "experiment",
-      tags: ["R", "Python", "SPSS", "Qualtrics"],
-      desc: "This experimental project analyzed how choice overload in storefront environments causes user drop-off and decision fatigue. By deploying structured visual popularity cues, we tested how cognitive burden can be minimized to boost purchase intent.",
-      bullets: [
-        "Constructed a between-subjects experiment mimicking a retail storefront with 200+ participants.",
-        "Discovered that visual popularity badges ('Best Seller') significantly lowered choice paralysis.",
-        "Mapped the data cleaning workflow in Python and ran ANOVA/MANOVA metrics in SPSS.",
-        "Created polished, stakeholder-ready visualizations utilizing ggplot2 in R."
-      ],
-      impact: "Proved that strategic visual cues directly reduce decision-making fatigue and boost user conversion rates in crowded environments.",
-      badge: "Behavioral Analytics"
+      desc: "Designed and evaluated an experimental setup to address drop-offs within complex app interfaces. Managed high-volume participant streams, extracted statistical variances using Python & R, and verified that targeted popularity tags significantly mitigate cognitive paralysis, keeping users in the purchasing funnel.",
+      label: "Conversion Science",
+      stack: "R · Python · SPSS · Decision Theory"
     },
-    {
-      id: "storefront-ux",
-      title: "Decision Intelligence Mode (DIM) – Storefront UX",
-      subtitle: "A design concept and experimental structure reducing cognitive load in-app.",
-      category: "growth",
-      tags: ["Figma", "Storefront Optimization", "A/B Testing", "CRO"],
-      desc: "Designed an interactive App Storefront concept in Figma focused on optimizing the user journey. Developed a comprehensive storefront A/B testing strategy focusing on 'Decision Intelligence Mode' (DIM), which minimizes visual cluster to improve purchase conversion.",
-      bullets: [
-        "Created high-fidelity Figma storefront mockups focusing on streamlined filter architecture.",
-        "Formulated the entire A/B testing hypothesis, cohort division parameters, and user flows.",
-        "Mapped storefront success metrics including Conversion (CVR), Average Session Duration, and Retention Rate.",
-        "Prepared a detailed product spec document tailored for developers and growth marketing teams."
-      ],
-      impact: "Provided a testable, conversion-oriented UX prototype directly aligning product design with user cognitive limits.",
-      badge: "Mobile Growth"
-    },
-    {
-      id: "persuasion-narratives",
-      title: "Digital Persuasion & Success Story Effect",
-      subtitle: "Accepted presentation at SWPA 2026 Conference on digital narrative persuasion mechanics.",
-      category: "persuasion",
-      tags: ["Experimental Design", "Data Visualization", "SPSS"],
-      desc: "An analytical study investigating how digital narratives and personalized peer success stories influence trust and behavioral change online.",
-      bullets: [
-        "Investigated narrative transportation theory and peer success story effects.",
-        "Designed and analyzed the research framework using robust statistical packages.",
-        "Accepted to present outcomes and methodology at the SWPA 2026 Conference.",
-        "Successfully translated core psychological mechanics into practical UX copy guidelines."
-      ],
-      impact: "Delivered scientific guidelines on how to craft onboarding copies and push notifications to maximize early-stage retention.",
-      badge: "Persuasion Science"
+    dim: {
+      title: "Decision Intelligence UI Concept (DIM)",
+      desc: "Constructed high-fidelity interactive storefront assets in Figma. Concurrently built a comprehensive roadmap for storefront A/B testing—defining specific segment controls, conversion tracking endpoints, and clean visual structures aimed directly at rising metrics like CVR & early activation.",
+      label: "App Storefront UX",
+      stack: "Figma · Storefront A/B Testing · App Store Optimization (ASO) · CRO"
     }
-  ];
+  };
 
-  // 2. Render Projects
-  const grid = document.getElementById("projectGrid");
-  const modal = document.getElementById("projectModal");
-  const searchInput = document.getElementById("projectSearch");
-  const filterBtns = document.querySelectorAll(".filterBtn");
+  const modal = document.getElementById('projectModal');
 
-  let activeFilter = "all";
-  let searchTerm = "";
-
-  function render() {
-    grid.innerHTML = "";
-    const filtered = projects.filter(p => {
-      const matchCat = activeFilter === "all" || p.category === activeFilter;
-      const matchText = p.title.toLowerCase().includes(searchTerm) || 
-                        p.subtitle.toLowerCase().includes(searchTerm) ||
-                        p.tags.some(t => t.toLowerCase().includes(searchTerm));
-      return matchCat && matchText;
-    });
-
-    if (filtered.length === 0) {
-      grid.innerHTML = `<div class="card col12" style="text-align:center; padding:40px;"><p class="sub">No projects matched your criteria.</p></div>`;
-      return;
-    }
-
-    filtered.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "projectCard";
-      card.innerHTML = `
-        <div class="top">
-          <span class="badge">${p.badge}</span>
-        </div>
-        <h3 style="margin: 0 16px;">${p.title}</h3>
-        <p>${p.subtitle}</p>
-        <div class="bottom">
-          ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
-        </div>
-      `;
-      card.addEventListener("click", () => openModal(p));
-      grid.appendChild(card);
-    });
-  }
-
-  // 3. Modal Functionality
-  function openModal(p) {
-    document.getElementById("modalTitle").innerText = p.title;
-    document.getElementById("modalBadge").innerText = p.badge;
-    document.getElementById("modalDesc").innerText = p.desc;
-    document.getElementById("modalStack").innerText = p.tags.join(" · ");
-    document.getElementById("modalImpact").innerText = p.impact;
-
-    const bulletsUl = document.getElementById("modalBullets");
-    bulletsUl.innerHTML = "";
-    p.bullets.forEach(b => {
-      const li = document.createElement("li");
-      li.innerText = b;
-      bulletsUl.appendChild(li);
-    });
-
+  function openProject(key) {
+    const data = details[key];
+    document.getElementById('mLabel').innerText = data.label;
+    document.getElementById('mTitle').innerText = data.title;
+    document.getElementById('mDesc').innerText = data.desc;
+    document.getElementById('mStack').innerText = data.stack;
     modal.showModal();
   }
 
-  document.getElementById("modalClose").addEventListener("click", () => modal.close());
-  modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
-
-  // 4. Filters & Search
-  searchInput.addEventListener("input", (e) => {
-    searchTerm = e.target.value.toLowerCase();
-    render();
-  });
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      activeFilter = btn.getAttribute("data-filter");
-      render();
-    });
-  });
-
-  // 5. Copy Email Action
-  const copyBtn = document.getElementById("copyEmailBtn");
-  const toast = document.getElementById("toast");
-  const emailStr = "parildarelif@gmail.com";
-
-  function copyEmail() {
-    navigator.clipboard.writeText(emailStr).then(() => {
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2000);
-    });
+  function closeModal() {
+    modal.close();
   }
 
-  copyBtn.addEventListener("click", copyEmail);
-  window.addEventListener("keydown", (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      copyEmail();
-    }
-  });
-
-  // 6. Theme Toggle (Dark/Light)
-  const themeBtn = document.getElementById("themeBtn");
-  const themeIcon = document.getElementById("themeIcon");
-  let theme = localStorage.getItem("theme") || "dark";
-
-  function updateTheme() {
-    document.documentElement.setAttribute("data-theme", theme);
-    if (theme === "light") {
-      themeIcon.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      `;
-    } else {
-      themeIcon.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-      `;
-    }
-  }
-
-  themeBtn.addEventListener("click", () => {
-    theme = theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", theme);
-    updateTheme();
-  });
-
-  // 7. Reveal Scroll Effect
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  window.addEventListener("DOMContentLoaded", () => {
-    updateTheme();
-    render();
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
   });
 </script>
+
 </body>
 </html>
