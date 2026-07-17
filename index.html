@@ -12,10 +12,11 @@
       --panel-hover: rgba(255, 255, 255, 0.06);
       --text: #f3f4f6;
       --muted: #9ca3af;
-      --line: rgba(255, 255, 255, 0.07);
-      --brand: #8b5cf6; /* HubX Purple Glow */
-      --brand-glow: rgba(139, 92, 246, 0.15);
-      --sans: "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --line: rgba(255, 255, 255, 0.08);
+      --brand: #8b5cf6; /* Neon Purple */
+      --brand-glow: rgba(139, 92, 246, 0.2);
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,10 +27,10 @@
       font-family: var(--sans);
       letter-spacing: -0.01em;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* Ambient Glow Background */
+    /* Ambient Glowing Orbs */
     .glow-container {
       position: absolute;
       width: 100%;
@@ -41,16 +42,16 @@
     }
     .glow-1 {
       position: absolute;
-      top: -10%; left: 20%;
+      top: -10%; left: 15%;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
       filter: blur(80px);
     }
     .glow-2 {
       position: absolute;
-      top: 40%; right: -10%;
+      top: 50%; right: -5%;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
       filter: blur(80px);
     }
 
@@ -59,17 +60,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       border-bottom: 1px solid var(--line);
     }
     .logo {
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -0.03em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.04em;
     }
     .logo span {
       background: linear-gradient(135deg, #8b5cf6, #3b82f6);
@@ -78,7 +76,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
     }
     .nav-links a {
       color: var(--muted);
@@ -90,43 +88,45 @@
     .nav-links a:hover { color: var(--text); }
 
     main {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
 
-    /* Hero Section (Ultra Minimal) */
+    /* Hero */
     .hero {
-      max-width: 800px;
-      margin-bottom: 100px;
+      max-width: 850px;
+      margin-bottom: 80px;
     }
     .tagline {
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--brand);
       margin-bottom: 16px;
       font-weight: 700;
+      background: rgba(139, 92, 246, 0.1);
+      padding: 4px 12px;
+      border-radius: 99px;
     }
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
       font-weight: 900;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.04em;
       margin-bottom: 24px;
     }
     h1 span {
-      background: linear-gradient(to right, #ffffff, #9ca3af);
+      background: linear-gradient(to right, #ffffff, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.5;
       margin-bottom: 32px;
-      font-weight: 400;
     }
 
     .cta-group {
@@ -140,20 +140,21 @@
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
+      border: none;
+      outline: none;
     }
     .btn-primary {
-      background: var(--text);
-      color: var(--bg);
+      background: #ffffff;
+      color: #070a13;
     }
     .btn-primary:hover {
-      background: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
     }
     .btn-secondary {
       background: var(--panel);
@@ -162,38 +163,37 @@
     }
     .btn-secondary:hover {
       background: var(--panel-hover);
+      border-color: var(--brand);
       transform: translateY(-2px);
     }
 
-    /* Grid Layout for Sleek Cards */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
+    /* Fixed Layout & Grid System */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
       gap: 24px;
-      margin-bottom: 100px;
+      margin-bottom: 80px;
     }
-    .col-8 { grid-column: span 8; }
-    .col-4 { grid-column: span 4; }
-    .col-6 { grid-column: span 6; }
-    .col-12 { grid-column: span 12; }
-
-    @media (max-width: 900px) {
-      .col-8, .col-4, .col-6 { grid-column: span 12; }
-    }
+    .w-50 { flex: 1 1 calc(50% - 12px); min-width: 300px; }
+    .w-60 { flex: 1.2 1 calc(60% - 12px); min-width: 300px; }
+    .w-40 { flex: 0.8 1 calc(40% - 12px); min-width: 300px; }
+    .w-100 { flex: 1 1 100%; }
 
     .card {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 32px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
     .card:hover {
-      border-color: rgba(139, 92, 246, 0.4);
+      border-color: rgba(139, 92, 246, 0.3);
       background: var(--panel-hover);
-      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
     
     .card-label {
@@ -203,92 +203,135 @@
       color: var(--brand);
       font-weight: 700;
       margin-bottom: 12px;
-      display: block;
     }
-
     .card-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
+      color: #fff;
     }
-
     .card-desc {
       color: var(--muted);
       font-size: 0.95rem;
       line-height: 1.5;
+      margin-bottom: 20px;
     }
 
-    /* Visual Specs / Mini Stats */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .stat-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--line);
+    /* Interactive Widget: Choice Overload Sandbox */
+    .sandbox {
+      background: rgba(139, 92, 246, 0.05);
+      border: 1px dashed var(--brand);
       border-radius: 16px;
+      padding: 20px;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .sandbox-grid {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+      transition: all 0.3s ease;
+    }
+    .sandbox-item {
+      padding: 6px 12px;
+      background: var(--panel-hover);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    .sandbox-item.high-friction {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    /* Terminal Fact Deck */
+    .terminal {
+      background: #03050a;
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      font-family: var(--mono);
       padding: 16px;
+      font-size: 0.8rem;
     }
-    .stat-val {
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: var(--text);
+    .terminal-header {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
     }
-    .stat-lbl {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 4px;
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
     }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
 
     /* Tech Pill Grid */
     .pill-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
+      gap: 6px;
+      margin-top: auto;
     }
     .pill {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 99px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--muted);
     }
 
-    /* Projects Section */
+    /* Section Typography */
     .section-header {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .section-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       letter-spacing: -0.03em;
     }
     .section-subtitle {
       color: var(--muted);
-      font-size: 1rem;
-      margin-top: 4px;
+      font-size: 0.95rem;
     }
 
-    /* Contact Block (HubX style Footer call to action) */
+    /* Fun Facts Stack */
+    .fact-trigger {
+      background: var(--brand);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .fact-trigger:hover {
+      background: #7c3aed;
+    }
+
+    /* Contact Block */
     .contact-hero {
       text-align: center;
-      padding: 80px 24px;
+      padding: 60px 20px;
       background: radial-gradient(circle at 50% 50%, var(--brand-glow), transparent 60%);
-      border-radius: 32px;
+      border-radius: 24px;
       border: 1px solid var(--line);
-      margin-top: 100px;
+      margin-top: 40px;
     }
     .contact-hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 900;
       letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     footer {
@@ -296,30 +339,30 @@
       text-align: center;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* Quick Interaction Modal */
+    /* Dialog Popups */
     dialog {
       border: 1px solid var(--line);
       background: #0d111d;
       color: var(--text);
-      border-radius: 24px;
-      padding: 40px;
-      max-width: 600px;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 550px;
       margin: auto;
       outline: none;
     }
     dialog::backdrop {
       background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(8px);
     }
     .close-modal {
       float: right;
       background: none;
       border: none;
       color: var(--muted);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
     }
   </style>
@@ -334,148 +377,186 @@
 <header>
   <div class="logo">Elif Parıldar.<span>Growth</span></div>
   <div class="nav-links">
-    <a href="#about">About</a>
     <a href="#projects">Work</a>
-    <a href="#education">Education</a>
+    <a href="#about-edu">Academic</a>
     <a href="#contact">Contact</a>
   </div>
 </header>
 
 <main>
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
-    <span class="tagline">Psychology × Mobile Growth</span>
-    <h1><span>Weaving behavioral science into digital growth loops.</span></h1>
-    <p>I build storefront hypotheses, optimize conversion psychology, and analyze user journeys using data-driven insights.</p>
+    <span class="tagline">Psychology Meets Conversion Analytics</span>
+    <h1><span>Weaving human behavior into software growth loops.</span></h1>
+    <p>I build visual storefront experiments, design clean conversion paths, and resolve cognitive drop-off points using behavioral data science.</p>
     <div class="cta-group">
-      <a href="#projects" class="btn btn-primary">See My Work</a>
-      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Get in Touch</a>
+      <a href="#projects" class="btn btn-primary">Analyze My Work</a>
+      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Direct Dispatch</a>
     </div>
   </section>
 
-  <!-- WORK / PROJECTS SECTION -->
-  <section id="projects" style="margin-bottom: 100px;">
+  <!-- INTERACTIVE FUN: CHOICE OVERLOAD SANDBOX -->
+  <section class="w-100" style="margin-bottom: 80px;">
+    <div class="card" style="border-color: rgba(139, 92, 246, 0.35);">
+      <div>
+        <span class="card-label">Interactive Experience</span>
+        <h3 class="card-title">🔬 Storefront Choice Overload Sandbox</h3>
+        <p class="card-desc">As a growth expert, I believe in showing instead of telling. Hit the buttons below to see how choice-architecture directly reduces user friction.</p>
+      </div>
+      
+      <div class="sandbox">
+        <p style="font-size: 0.85rem; font-weight: 600;" id="sandbox-status">Current State: Standard Storefront (Medium Friction)</p>
+        
+        <div class="sandbox-grid" id="sandbox-grid">
+          <div class="sandbox-item">Basic Plan</div>
+          <div class="sandbox-item">Pro Plan</div>
+          <div class="sandbox-item">Ultra Plan</div>
+          <div class="sandbox-item">Mega Plan</div>
+        </div>
+
+        <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.75rem;" onclick="triggerOverload()">Simulate Choice Paralysis</button>
+          <button class="btn btn-primary" style="padding: 6px 14px; font-size: 0.75rem; background: var(--brand); color:#fff;" onclick="optimizeArchitecture()">Apply Choice Architecture</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION (Layout Fixed) -->
+  <section id="projects" style="margin-bottom: 80px;">
     <div class="section-header">
       <h2 class="section-title">Selected Projects</h2>
-      <p class="section-subtitle">Data-backed conversion and user psychology experiments.</p>
+      <p class="section-subtitle">Click on any card to view hypothesis, data-methods, and growth value.</p>
     </div>
 
-    <div class="grid">
+    <div class="row">
       <!-- Project 1 -->
-      <div class="card col-6" onclick="openProject('choice')">
-        <span class="card-label">Conversion Science</span>
-        <h3 class="card-title">Mitigating Choice Overload</h3>
-        <p class="card-desc">An experimental study assessing how visual design structures and badge architectures reduce cognitive friction and drop-off in storefronts.</p>
-        <div class="pill-container">
-          <span class="pill">R</span>
-          <span class="pill">Python</span>
-          <span class="pill">SPSS</span>
-          <span class="pill">Quantitative Modeling</span>
+      <div class="w-50">
+        <div class="card" onclick="openProject('choice')" style="cursor: pointer;">
+          <div>
+            <span class="card-label">Decision Architecture</span>
+            <h3 class="card-title">Mitigating Choice Overload</h3>
+            <p class="card-desc">An experimental design mapping how targeted popularity badges and visual visual hierarchies mitigate buyer decision paralysis.</p>
+          </div>
+          <div class="pill-container">
+            <span class="pill">R</span>
+            <span class="pill">Python</span>
+            <span class="pill">SPSS</span>
+            <span class="pill">Quantitative Modeling</span>
+          </div>
         </div>
       </div>
 
       <!-- Project 2 -->
-      <div class="card col-6" onclick="openProject('dim')">
-        <span class="card-label">App Storefront UX</span>
-        <h3 class="card-title">Decision Intelligence UI (DIM)</h3>
-        <p class="card-desc">Interactive mobile storefront concept designed to lower choice paralysis, featuring complete A/B testing structures and developer product specifications.</p>
-        <div class="pill-container">
-          <span class="pill">Figma</span>
-          <span class="pill">Storefront Optimization</span>
-          <span class="pill">A/B Testing</span>
-          <span class="pill">CRO</span>
+      <div class="w-50">
+        <div class="card" onclick="openProject('dim')" style="cursor: pointer;">
+          <div>
+            <span class="card-label">App Storefront UX</span>
+            <h3 class="card-title">Decision Intelligence UI (DIM)</h3>
+            <p class="card-desc">Figma storefront flow designed to isolate decision variables, complete with test cohort distributions and specifications.</p>
+          </div>
+          <div class="pill-container">
+            <span class="pill">Figma UX</span>
+            <span class="pill">ASO Optimization</span>
+            <span class="pill">A/B Test Design</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION & SKILLS IN ONE SLEEK GRID -->
-  <section id="education">
-    <div class="grid">
-      <!-- Education Card -->
-      <div class="card col-7">
-        <span class="card-label">Education</span>
-        <h3 class="card-title">Academic Foundation</h3>
-        <p class="card-desc" style="margin-bottom: 16px;">Bridging pure human psychology with international business perspectives.</p>
-        
-        <div class="stat-item" style="margin-bottom: 12px;">
-          <div class="stat-val">Özyeğin University</div>
-          <div class="stat-lbl">BA in Psychology (Honors / 50% High-Achievement Scholarship)</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val">Bayes Business School, London</div>
-          <div class="stat-lbl">Incoming MSc Student — focus on commercial behavioral metrics</div>
+  <!-- EDUCATION, TOOKIT & EASTER EGG SECTION (Grid Bug Fully Resolved!) -->
+  <section id="about-edu" style="margin-bottom: 80px;">
+    <div class="row">
+      
+      <!-- Academic Foundation (Left side) -->
+      <div class="w-60">
+        <div class="card">
+          <div>
+            <span class="card-label">Education</span>
+            <h3 class="card-title">Academic Pipeline</h3>
+            <p class="card-desc">Blending analytical psychology foundations with upcoming strategic business applications.</p>
+            
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px;">
+              <span style="font-weight: 800; font-size: 0.95rem; display: block;">Özyeğin University</span>
+              <span style="font-size: 0.8rem; color: var(--muted);">BA in Psychology · English-medium · Honors & 50% Scholarship</span>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
+              <span style="font-weight: 800; font-size: 0.95rem; display: block;">Bayes Business School, London</span>
+              <span style="font-size: 0.8rem; color: var(--muted);">Incoming MSc Student — Bridging behavior with metrics</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Quick Stats / Core focus -->
-      <div class="card col-5">
-        <span class="card-label">Core Focus</span>
-        <h3 class="card-title">My Toolkit</h3>
-        <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-val">SQL/R</div>
-            <div class="stat-lbl">Data Analysis</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-val">Figma</div>
-            <div class="stat-lbl">UI/UX Layouts</div>
-          </div>
-        </div>
-        <div class="stats-row" style="margin-top: 12px;">
-          <div class="stat-item">
-            <div class="stat-val">A/B Test</div>
-            <div class="stat-lbl">Hypothesis Setup</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-val">Psych</div>
-            <div class="stat-lbl">Cognitive Friction</div>
+      <!-- Dynamic Interactive Toolkit / Easter Egg (Right side) -->
+      <div class="w-40">
+        <div class="card">
+          <div>
+            <span class="card-label">Interactive Console</span>
+            <h3 class="card-title">Growth Terminal</h3>
+            <p class="card-desc">Click the trigger below to extract live stats directly from my active profile array.</p>
+            
+            <div class="terminal">
+              <div class="terminal-header">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div id="terminal-screen" style="color: #38bdf8; line-height: 1.4;">
+                $ ready to query...
+              </div>
+            </div>
+            <button class="fact-trigger" onclick="runFunFact()">Query Next Stat</button>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- CONTACT HERO -->
   <section id="contact" class="contact-hero">
-    <span class="tagline">Let's Connect</span>
-    <h2>Ready to drive scalable growth?</h2>
-    <p style="color: var(--muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">
-      I'm looking to apply behavioral theories directly to mobile conversion loops. Let's build something exceptional.
+    <span class="tagline">Let's Build</span>
+    <h2>Ready to optimize conversion?</h2>
+    <p style="color: var(--muted); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">
+      I build elegant design frameworks and test models. Direct messages are highly welcome.
     </p>
     <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">parildarelif@gmail.com</a>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Elif Parıldar. Shaped with a minimalist and data-centric mindset.</p>
+  <p>&copy; 2026 Elif Parıldar. Engineered for performance and human insight.</p>
 </footer>
 
-<!-- Modern Modal Popups -->
+<!-- Modals -->
 <dialog id="projectModal">
   <button class="close-modal" onclick="closeModal()">&times;</button>
-  <span class="card-label" id="mLabel">Project details</span>
-  <h2 id="mTitle" style="margin: 12px 0 16px; font-weight: 900; letter-spacing: -0.03em;"></h2>
-  <p id="mDesc" style="color: var(--muted); margin-bottom: 24px; line-height: 1.6;"></p>
-  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 16px; padding: 20px;">
-    <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand); margin-bottom: 8px;">Stack & Target Loop</h4>
-    <p id="mStack" style="font-size: 0.9rem; font-weight: 600;"></p>
+  <span class="card-label" id="mLabel">Project Spec</span>
+  <h2 id="mTitle" style="margin: 10px 0 14px; font-weight: 900; letter-spacing: -0.03em;"></h2>
+  <p id="mDesc" style="color: var(--muted); margin-bottom: 20px; line-height: 1.6; font-size:0.9rem;"></p>
+  <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
+    <h4 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand); margin-bottom: 6px;">Stack Focus</h4>
+    <p id="mStack" style="font-size: 0.85rem; font-weight: 600;"></p>
   </div>
 </dialog>
 
 <script>
+  // Project Info
   const details = {
     choice: {
       title: "Consumer Decision Fatigue & Choice Architecture",
-      desc: "Designed and evaluated an experimental setup to address drop-offs within complex app interfaces. Managed high-volume participant streams, extracted statistical variances using Python & R, and verified that targeted popularity tags significantly mitigate cognitive paralysis, keeping users in the purchasing funnel.",
-      label: "Conversion Science",
-      stack: "R · Python · SPSS · Decision Theory"
+      desc: "Designed an experimental storefront environment evaluating customer choices under visual overload. Managed control variations, cleaned empirical metrics using Python, and designed ANOVA models in SPSS to verify how popularity indicators successfully increase click-through behavior and mitigate decision drop-off.",
+      label: "Decision Architecture",
+      stack: "R Studio · Python Analytics · SPSS · Experimental Setup"
     },
     dim: {
       title: "Decision Intelligence UI Concept (DIM)",
-      desc: "Constructed high-fidelity interactive storefront assets in Figma. Concurrently built a comprehensive roadmap for storefront A/B testing—defining specific segment controls, conversion tracking endpoints, and clean visual structures aimed directly at rising metrics like CVR & early activation.",
+      desc: "Constructed interface interactions within Figma targeted at reducing visual cognitive load. Configured structured A/B testing methodologies, cohort tracking metrics (such as CVR & baseline session lengths), and mapped precise specifications for dev alignment.",
       label: "App Storefront UX",
-      stack: "Figma · Storefront A/B Testing · App Store Optimization (ASO) · CRO"
+      stack: "Figma UX Prototyping · Storefront A/B Testing · ASO Dynamics"
     }
   };
 
@@ -497,6 +578,54 @@
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.close();
   });
+
+  // Fun Sandbox Simulator
+  const sandboxGrid = document.getElementById('sandbox-grid');
+  const sandboxStatus = document.getElementById('sandbox-status');
+
+  function triggerOverload() {
+    sandboxGrid.innerHTML = `
+      <div class="sandbox-item high-friction">Basic Plan V1</div>
+      <div class="sandbox-item high-friction">Pro Plan Lite</div>
+      <div class="sandbox-item high-friction">Pro Plan Max</div>
+      <div class="sandbox-item high-friction">Business Core</div>
+      <div class="sandbox-item high-friction">Premium Pack</div>
+      <div class="sandbox-item high-friction">Enterprise Pro</div>
+      <div class="sandbox-item high-friction">Developer Cloud</div>
+    `;
+    sandboxStatus.innerText = "Current State: 🚨 CHOICE OVERLOAD (High Friction / Drop-off Point)";
+    sandboxStatus.style.color = "#ef4444";
+  }
+
+  function optimizeArchitecture() {
+    sandboxGrid.innerHTML = `
+      <div class="sandbox-item" style="border-color: var(--brand); font-weight:700;">🌟 Best Value: Pro Plan</div>
+      <div class="sandbox-item" style="opacity: 0.6;">Enterprise Cloud</div>
+    `;
+    sandboxStatus.innerText = "Current State: ✅ OPTIMIZED (Choice Reduced / CVR Lifted!)";
+    sandboxStatus.style.color = "#10b981";
+  }
+
+  // Interactive Terminal
+  const funFacts = [
+    "loading profile data...",
+    "elif.psychology_gpa = 'Honors'",
+    "elif.academic_scholarship = '50% Merit-Based'",
+    "elif.target_msc = 'Bayes Business School, London'",
+    "elif.swpa_presentation = 'Accepted for 2026!'",
+    "elif.favorite_growth_method = 'ASO & A/B testing'",
+    "elif.coffee_conversion_rate = '100% CVR'",
+    "elif.target_companies = ['HubX', 'Innovative Tech Firms']",
+    "elif.status = 'Ready to build high-impact conversion loops'"
+  ];
+  let factIndex = 0;
+  const screen = document.getElementById('terminal-screen');
+
+  function runFunFact() {
+    screen.innerHTML += `<br>> ${funFacts[factIndex]}`;
+    factIndex = (factIndex + 1) % funFacts.length;
+    screen.scrollTop = screen.scrollHeight;
+  }
 </script>
 
 </body>
