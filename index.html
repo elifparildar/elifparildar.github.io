@@ -41,7 +41,7 @@
       justify-content: center;
     }
 
-    /* HubX Style Ambient Ambient Glows */
+    /* HubX Style Ambient Glows */
     .glow {
       position: absolute;
       width: 800px; height: 800px;
@@ -195,7 +195,7 @@
       font-size: 1rem;
     }
 
-    /* Fixed Grid - Centered & Dynamic */
+    /* Grid Layout */
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -258,7 +258,7 @@
       color: var(--text-secondary);
     }
 
-    /* Education & Certs Layout */
+    /* Education Layout */
     .list-container {
       display: flex;
       flex-direction: column;
@@ -301,7 +301,7 @@
       font-weight: 700;
     }
 
-    /* Toolkit Visual Grid */
+    /* Toolkit Grid */
     .toolkit-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -326,7 +326,7 @@
       color: var(--text-secondary);
     }
 
-    /* Contact Block */
+    /* Contact Block with Full Details */
     .contact-section {
       text-align: center;
       padding: 60px 32px;
@@ -346,8 +346,15 @@
     }
     .contact-section p {
       color: var(--text-secondary);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       max-width: 500px;
+    }
+    .contact-grid {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 700px;
     }
 
     footer {
@@ -419,7 +426,7 @@
     <a href="#work">Work</a>
     <a href="#academic">Education</a>
     <a href="#toolkit">Skills</a>
-    <a href="mailto:parildarelif@gmail.com">Contact</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
 
@@ -431,7 +438,7 @@
     <p>Psychology Graduate and incoming Bayes Business School MSc candidate. Specializing in choice architecture, data analytics, and storefront A/B testing to eliminate cognitive friction and accelerate product growth.</p>
     <div class="cta-group">
       <a href="#work" class="btn btn-primary">Explore Research & Cases</a>
-      <a href="mailto:parildarelif@gmail.com" class="btn btn-secondary">Get in Touch</a>
+      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
     </div>
   </section>
 
@@ -510,7 +517,7 @@
           <p>BA in Psychology · 50% Merit Scholarship (2022 - 2026)</p>
           <p style="font-size: 0.8rem; color: #6b7280;">Relevant Focus: Computational Social Sciences (R-focused), Applied Social Psychology, Innovation Management.</p>
         </div>
-        <span class="list-badge">Honors Degree</span>
+        <span class="list-badge">Istanbul, TR</span>
       </div>
     </div>
   </section>
@@ -543,7 +550,7 @@
   </section>
 
   <!-- ADDITIONAL CERTIFICATIONS -->
-  <section id="certs" style="margin-bottom: 60px;">
+  <section id="certs">
     <div class="section-header">
       <h2 class="section-title">Specializations & Extensions</h2>
     </div>
@@ -563,12 +570,18 @@
     </div>
   </section>
 
-  <!-- CONTACT HERO -->
+  <!-- CONTACT HERO WITH CHANNELS -->
   <section id="contact" class="contact-section">
     <span class="tagline">Let's Connect</span>
     <h2>Build Frictionless Product Funnels.</h2>
     <p>Currently seeking growth and analytics internships. Let's build together.</p>
-    <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">parildarelif@gmail.com</a>
+    
+    <div class="contact-grid">
+      <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">parildarelif@gmail.com</a>
+      <a href="https://linkedin.com/in/elifparildar" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      <a href="https://github.com/elifparildar" target="_blank" class="btn btn-secondary">GitHub</a>
+      <a href="https://elifparildar.github.io" target="_blank" class="btn btn-secondary">Portfolio Website</a>
+    </div>
   </section>
 </main>
 
@@ -576,7 +589,7 @@
   <p>&copy; 2026 Elif Parıldar. Designed with a growth-focused, behavioral worldview.</p>
 </footer>
 
-<!-- MODAL COMPONENT (DEEP-DIVE INFORMATION LAYER) -->
+<!-- MODAL COMPONENT -->
 <dialog id="projectModal">
   <button class="close-btn" onclick="closeModal()">&times;</button>
   <span class="card-meta" id="mLabel">Project Profile</span>
@@ -596,7 +609,6 @@
 </dialog>
 
 <script>
-  // Structured details safely pulled from your real academic and case data
   const details = {
     choice: {
       label: "Behavioral Science & CRO",
