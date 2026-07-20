@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elif Parıldar — Consumer Behavior & Mobile Growth</title>
-  <meta name="description" content="Psychology × Mobile Growth. Specializing in choice architecture, storefront optimization, and data analytics." />
+  <title>Elif Parıldar — Consumer Behavior & Data Analytics</title>
+  <meta name="description" content="Psychology × Data Analytics. Interested in applying behavioral science, experimentation, and data analytics to improve digital products." />
   
   <!-- Google Fonts: Inter & Plus Jakarta Sans for premium feel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
       justify-content: center;
     }
 
-    /* HubX Style Ambient Glows */
+    /* Ambient Glows */
     .glow {
       position: absolute;
       width: 800px; height: 800px;
@@ -133,7 +133,7 @@
     .hero p {
       font-size: clamp(1.05rem, 2vw, 1.25rem);
       color: var(--text-secondary);
-      max-width: 680px;
+      max-width: 720px;
       margin-bottom: 40px;
     }
     .cta-group {
@@ -258,7 +258,7 @@
       color: var(--text-secondary);
     }
 
-    /* Education Layout */
+    /* Education & Experience Layout */
     .list-container {
       display: flex;
       flex-direction: column;
@@ -326,7 +326,7 @@
       color: var(--text-secondary);
     }
 
-    /* Contact Block with Full Details */
+    /* Contact Block */
     .contact-section {
       text-align: center;
       padding: 60px 32px;
@@ -366,7 +366,7 @@
       font-size: 0.8rem;
     }
 
-    /* Modal / Deep-Dive Popup Style */
+    /* Modal Style */
     dialog {
       border: 1px solid var(--border);
       background: #0d1322;
@@ -421,9 +421,10 @@
 <div class="glow glow-mid"></div>
 
 <header>
-  <div class="logo">Elif Parıldar<span>.Growth</span></div>
+  <div class="logo">Elif Parıldar<span>.Insights</span></div>
   <div class="nav-links">
-    <a href="#work">Work</a>
+    <a href="#work">Projects</a>
+    <a href="#experience">Experience</a>
     <a href="#academic">Education</a>
     <a href="#toolkit">Skills</a>
     <a href="#contact">Contact</a>
@@ -433,11 +434,11 @@
 <main>
   <!-- HERO SECTION -->
   <section class="hero">
-    <span class="tagline">Psychology × Mobile Growth Strategy</span>
-    <h1><span>Bridging human behavior and digital monetization.</span></h1>
-    <p>Psychology Graduate and incoming Bayes Business School MSc candidate. Specializing in choice architecture, data analytics, and storefront A/B testing to eliminate cognitive friction and accelerate product growth.</p>
+    <span class="tagline">Psychology & Data Analytics</span>
+    <h1><span>Behavioral science meets data-informed decisions.</span></h1>
+    <p>Psychology Graduate (BA) and incoming Bayes Business School MSc candidate. I am interested in understanding how people make decisions and applying behavioral science, experimentation, and data analytics to improve digital products and user experiences.</p>
     <div class="cta-group">
-      <a href="#work" class="btn btn-primary">Explore Research & Cases</a>
+      <a href="#work" class="btn btn-primary">View Projects & Research</a>
       <a href="#contact" class="btn btn-secondary">Get in Touch</a>
     </div>
   </section>
@@ -446,19 +447,19 @@
   <section id="work">
     <div class="section-header">
       <h2 class="section-title">Featured Projects & Research</h2>
-      <p class="section-subtitle">Click on any card to dive deep into statistical methodologies, UI parameters, and frameworks.</p>
+      <p class="section-subtitle">Click on any card to see details on methodologies, tools, and behavioral frameworks.</p>
     </div>
 
     <div class="grid-container">
       <!-- Project 1 -->
       <div class="card" onclick="openProject('choice')">
         <div>
-          <span class="card-meta">Behavioral Science & CRO</span>
+          <span class="card-meta">Independent Study</span>
           <h3 class="card-title">Consumer Decision Fatigue</h3>
-          <p class="card-body">An empirical A/B experiment (N=63) isolating how choice volume and visual "popularity badges" affect conversion rates and decision speeds on digital storefronts.</p>
+          <p class="card-body">An empirical behavioral experiment (N=63) applying A/B testing principles to evaluate how choice volume and popularity cues influence decision speed and purchase intention.</p>
         </div>
         <div class="tag-container">
-          <span class="tag">R Language</span>
+          <span class="tag">R</span>
           <span class="tag">Python</span>
           <span class="tag">SPSS</span>
           <span class="tag">Qualtrics</span>
@@ -468,29 +469,48 @@
       <!-- Project 2 -->
       <div class="card" onclick="openProject('dim')">
         <div>
-          <span class="card-meta">App Storefront UX / Product Case</span>
+          <span class="card-meta">Product Strategy Case Study</span>
           <h3 class="card-title">Decision Intelligence Mode (DIM)</h3>
-          <p class="card-body">A conceptual Trendyol case study mapping interactive UI layers in Figma. Restructures app search filter architecture to optimize feature adoption and reduce cognitive load.</p>
+          <p class="card-body">A product concept developed for Trendyol addressing consumer decision fatigue through choice architecture and personalized product discovery prototypes in Figma.</p>
         </div>
         <div class="tag-container">
-          <span class="tag">Figma UI/UX</span>
-          <span class="tag">Storefront A/B Testing</span>
+          <span class="tag">Figma</span>
           <span class="tag">AI Workflows</span>
+          <span class="tag">Product Concept</span>
         </div>
       </div>
 
       <!-- Project 3 -->
       <div class="card" onclick="openProject('dating')">
         <div>
-          <span class="card-meta">Narrative Persuasion</span>
-          <h3 class="card-title">Online Dating Success Stories</h3>
-          <p class="card-body">Experimental research exploring narrative persuasion effects on digital matching platforms. Accepted and presented at the SWPA 2026 Conference.</p>
+          <span class="card-meta">Conference Presentation</span>
+          <h3 class="card-title">Online Dating Persuasion</h3>
+          <p class="card-body">An experimental study investigating narrative persuasion dynamics on digital platforms. Accepted and presented at the SWPA 2026 Conference.</p>
         </div>
         <div class="tag-container">
           <span class="tag">Experimental Design</span>
+          <span class="tag">Statistical Analysis</span>
           <span class="tag">SWPA 2026</span>
-          <span class="tag">Data Analysis</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE SECTION -->
+  <section id="experience">
+    <div class="section-header">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Applying structured observation and empirical standards to human behavior.</p>
+    </div>
+
+    <div class="list-container">
+      <div class="list-item">
+        <div class="list-info">
+          <h4>Dokuz Eylül University Hospital</h4>
+          <p>Observational Intern · Psychiatry (August 2025)</p>
+          <p style="font-size: 0.9rem; color: #6b7280; margin-top: 6px;">Synthesized behavioral observations into structured reports and collaborated with multidisciplinary clinical teams under ethical research standards.</p>
+        </div>
+        <span class="list-badge">Izmir, TR</span>
       </div>
     </div>
   </section>
@@ -498,8 +518,7 @@
   <!-- ACADEMIC & EDUCATION SECTION -->
   <section id="academic">
     <div class="section-header">
-      <h2 class="section-title">Education & Milestones</h2>
-      <p class="section-subtitle">Applying rigorous empirical sciences to high-performance product loops.</p>
+      <h2 class="section-title">Education</h2>
     </div>
 
     <div class="list-container">
@@ -515,7 +534,7 @@
         <div class="list-info">
           <h4>Özyeğin University</h4>
           <p>BA in Psychology · 50% Merit Scholarship (2022 - 2026)</p>
-          <p style="font-size: 0.8rem; color: #6b7280;">Relevant Focus: Computational Social Sciences (R-focused), Applied Social Psychology, Innovation Management.</p>
+          <p style="font-size: 0.85rem; color: #6b7280; margin-top: 6px;"><strong>Relevant Coursework:</strong> Computational Social Sciences (R-focused), Applied Social Psychology, Microeconomics, Digital Transformation, Technology and Innovation Management.</p>
         </div>
         <span class="list-badge">Istanbul, TR</span>
       </div>
@@ -526,25 +545,25 @@
   <section id="toolkit">
     <div class="section-header">
       <h2 class="section-title">Analytical Toolkit</h2>
-      <p class="section-subtitle">A cross-disciplinary fusion of behavioral architecture, UI prototyping, and data structures.</p>
+      <p class="section-subtitle">A balanced toolkit combining statistical analysis, behavioral frameworks, and prototyping.</p>
     </div>
 
     <div class="toolkit-grid">
       <div class="tool-box">
         <span>Data & Analytics</span>
-        <p>R, Python, SQL, SPSS, and advanced data-cleaning workflows.</p>
+        <p>R (ggplot2, data tidying), Python (Pandas), SQL (Data Querying), and SPSS.</p>
       </div>
       <div class="tool-box">
-        <span>Mobile Growth / CRO</span>
-        <p>A/B testing architectures, storefront asset optimization, and ASO fundamentals.</p>
+        <span>Experimentation</span>
+        <p>Experimental design, A/B testing principles, and survey setup in Qualtrics.</p>
       </div>
       <div class="tool-box">
         <span>UI/UX Prototyping</span>
-        <p>Figma flow architecture, interface wireframing, and interactive layouts.</p>
+        <p>Figma interface flows, wireframing, and interactive concept prototypes.</p>
       </div>
       <div class="tool-box">
-        <span>Behavioral Psychology</span>
-        <p>Choice architecture, narrative persuasion frameworks, and user friction diagnostic loops.</p>
+        <span>Behavioral Science</span>
+        <p>Choice architecture analysis, cognitive load diagnostics, and scale development (EFA, Reliability analysis).</p>
       </div>
     </div>
   </section>
@@ -556,16 +575,16 @@
     </div>
     <div class="toolkit-grid">
       <div class="tool-box">
-        <span>Mathematics for ML</span>
-        <p>Imperial College London (Linear Algebra)</p>
+        <span>Mathematics for ML: Linear Algebra</span>
+        <p>Imperial College London | Coursera (2026)</p>
       </div>
       <div class="tool-box">
         <span>SQL for Data Science</span>
-        <p>UC Davis</p>
+        <p>UC Davis | Coursera (2025)</p>
       </div>
       <div class="tool-box">
         <span>Data Science Math Skills</span>
-        <p>Duke University</p>
+        <p>Duke University | Coursera (2025)</p>
       </div>
     </div>
   </section>
@@ -573,8 +592,8 @@
   <!-- CONTACT HERO -->
   <section id="contact" class="contact-section">
     <span class="tagline">Let's Connect</span>
-    <h2>Build Frictionless Product Funnels.</h2>
-    <p>Currently seeking growth and analytics internships. Let's build together.</p>
+    <h2>Interested in Behavioral Science & Data?</h2>
+    <p>Currently preparing for my Master's journey at Bayes Business School and looking to connect with professionals in the field.</p>
     
     <div class="contact-grid">
       <a href="mailto:parildarelif@gmail.com" class="btn btn-primary">Email</a>
@@ -585,7 +604,7 @@
 </main>
 
 <footer>
-  <p>&copy; 2026 Elif Parıldar. Designed with a growth-focused, behavioral worldview.</p>
+  <p>&copy; 2026 Elif Parıldar. Built with a focus on data and behavioral science.</p>
 </footer>
 
 <!-- MODAL COMPONENT -->
@@ -597,38 +616,38 @@
   <p id="mDesc" style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;"></p>
 
   <div class="modal-section">
-    <h4>Methodology & Core Architecture</h4>
-    <p id="mMethod"></p>
+    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 6px; font-weight: 700;">Methodology & Tools</div>
+    <p id="mMethod" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
   </div>
 
   <div class="modal-section">
-    <h4>Growth & Strategic Impact</h4>
-    <p id="mImpact"></p>
+    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 6px; font-weight: 700;">Core Insight & Outcomes</div>
+    <p id="mImpact" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
   </div>
 </dialog>
 
 <script>
   const details = {
     choice: {
-      label: "Behavioral Science & CRO",
+      label: "Independent Study",
       title: "Consumer Decision Fatigue & Choice Architecture",
-      desc: "An independent experimental research project targeted at optimizing storefront retention. It explores how structure, listing volume, and visual ranking elements modulate cognitive friction during product choice selection.",
-      method: "Deployed an A/B experiment (N=63) via Qualtrics. Utilized R, Python, and SPSS to perform data-cleaning, cohort performance tracking, and comparative speed metrics analysis.",
-      impact: "Empirically proved that strategic visual cues (popularity badges) successfully mitigate choice paralysis—offering mobile applications a clear tool to optimize conversion rates (CVR) and minimize user onboarding drop-offs."
+      desc: "An independent behavioral experiment evaluating how structure, choice volume, and visual hierarchy elements modulate cognitive friction during user decision-making.",
+      method: "Designed and executed an A/B experiment (N=63) using Qualtrics. Analyzed behavioral data using SPSS (ANOVA/MANOVA), R, and Python to identify user behavior patterns.",
+      impact: "Demonstrated that strategic visual cues (such as popularity badges) can reduce choice paralysis, with practical applications in digital storefront layouts and user onboarding optimization."
     },
     dim: {
-      label: "App Storefront UX / Product Case Study",
+      label: "Product Strategy Case Study",
       title: "Decision Intelligence Mode (DIM)",
-      desc: "A strategic visual and product layout case study tailored for Trendyol. It aims to completely reinvent search results architectures through behavioral design loops.",
-      method: "Structured low-friction interactive interface components natively inside Figma. Configured complete AI-enhanced workflow processes alongside structured A/B test layout blueprints.",
-      impact: "Reduces search-to-purchase latency, significantly easing cognitive load. Built directly to accelerate initial feature adoption metrics and optimize day-1 subscription/retention levels."
+      desc: "A conceptual product strategy case study focused on addressing consumer decision fatigue through choice architecture and personalized product discovery flows.",
+      method: "Developed a product concept and interactive interface wireframes inside Figma to restructure app search and filter experiences.",
+      impact: "Proposed structured experimentation frameworks and A/B testing approaches to evaluate user experience, reduce cognitive load, and optimize feature adoption."
     },
     dating: {
-      label: "Conference Research & Presentation",
+      label: "Conference Presentation",
       title: "Online Dating Persuasion: Success Story Effect",
-      desc: "An analytical study inspecting cognitive and emotional engagement triggers through narrative persuasion layers embedded inside modern dating apps.",
-      method: "Conceptualized complex experimental conditions tracking the success story effect. Executed precise statistical evaluation protocols to assess relationship intent variance.",
-      impact: "Formally accepted and presented at the SWPA 2026 Conference and the Çiğdem Kağıtçıbaşı Festival, bridging empirical psychological science with interface platform dynamics."
+      desc: "An experimental study investigating narrative persuasion dynamics and cognitive engagement factors within digital matching platform environments.",
+      method: "Designed an experimental study on narrative persuasion layers and applied statistical analysis protocols to assess user interaction variance.",
+      impact: "Formally accepted and presented at the SWPA 2026 Conference and the Çiğdem Kağıtçıbaşı Festival, bridging psychological theory with digital interface mechanics."
     }
   };
 
